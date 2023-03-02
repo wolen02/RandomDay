@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+#wrap{
+	margin:auto;
+	width:1200px;
+}
+
+header{
+	height:50px;
+}
+
+section{
+	height:500px;
+}
+
+section .main-box{
+	width:600px;
+}
+
+
+.btn-circle.btn-xl {
+			width: 150px;
+			height: 150px;
+			padding: 13px 18px;
+			border-radius: 200px;
+			font-size: 25px;
+			text-align: center;
+			background-color:#1f4133;
+		}
+		
+		
+.btn-circle.btn-xl:hover {
+			background-color:#152b22;
+		}
+		
+		
+.end{
+	height:300px;
+}
