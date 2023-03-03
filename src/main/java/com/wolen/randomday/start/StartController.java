@@ -14,11 +14,4 @@ public class StartController {
 		return "randomday/start";
 	}
 	
-	// 로그인페이지 불러오기
-	
-	@RequestMapping("/user/signin/view")
-	public String signin() {
-		return "randomday/user/signin";
-	}
-	
 }
