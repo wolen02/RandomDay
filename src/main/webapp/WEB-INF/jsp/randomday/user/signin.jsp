@@ -14,14 +14,16 @@
 	
 	<div id="wrap">
 		
-		<header class="mt-3">
-			<div class="d-flex justify-content-between">
-				<h2><b>무작위하루</b></h2><span>주지성님</span>
+		<header class="mt-5 mb-3">
+			<div class="d-flex justify-content-center my-3 main-box">
+				<h1 class="text-center mb-2 mainBanner"><b>R</b><b>A</b><b>N</b><b>D</b></h1>
+				<img width="50px" height="50px" src="/static/images/지구.png" id="earth" alt="지구">
+				<h1 class="text-center mb-2 mainBanner"><b>M</b>&nbsp;<b>D</b><b>A</b><b>Y</b></h1>
 			</div>
 		</header>
 		
 		
-		<section class="d-flex justify-content-center align-items-center">
+		<section class="d-flex justify-content-center align-items-center height500">
 		
 			<div class="login_box d-flex justify-content-center align-items-center">
 			
@@ -96,7 +98,7 @@
 				, data:{"loginId":id, "password":password}
 				, success:function(data){
 					if(data.result == "success"){
-						location.href="/domestic/select";
+						location.href="/randomday/start/view";
 					}else if(data.result == "failId"){
 						alert("아이디를 확인해주세요");
 						return;

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.wolen.randomday.domestic.dao.DomesticDAO">
+  	
+  	<select id="selectDoOrSi" resultType="com.wolen.randomday.domestic.model.DoAndSi">
+	  	SELECT
+	  		`id`
+	  		,`name`
+	  	FROM
+	  		`DoAndSi`
+  	</select>
+  	
+  
+  
+  
+  	<select id="selectDoOrSiByName" parameterType="String"
+  		resultType="com.wolen.randomday.domestic.model.DoAndSi">
+  		SELECT
+  			`id`
+  			,`name`
+  		FROM
+  			`DoAndSi`
+  		WHERE
+  		 `name` = #{name}
+  	</select>	
+  
+ </mapper>

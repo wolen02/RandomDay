@@ -18,14 +18,18 @@
 		<header></header>
 		
 		
-		<section class="d-flex justify-content-center align-items-center">
+		<section class="d-flex justify-content-center align-items-center height500">
 			<div class="mb-4 flex-column main-box">
 			
-			
-					<h1 class="text-center mb-5"><b>무작위하루</b></h1>
+					<div class="d-flex justify-content-center mt-5 main-box">
+						<h1 class="text-center mb-5 mainBanner"><b>R</b><b>A</b><b>N</b><b>D</b></h1>
+						<img width="150px" height="150px" src="/static/images/지구.png" id="earth" alt="지구">
+						<h1 class="text-center mb-5 mainBanner"><b>M</b>&nbsp;<b>D</b><b>A</b><b>Y</b></h1>
+					</div>
+
 
 				
-					<div class="d-flex justify-content-around">
+					<div class="d-flex justify-content-around mt-5 main-box">
 						<button type="button" id="domesticBtn" class="btn btn-circle btn-xl"><span class="text-white"><b>국내</b></span></button>
 						<button type="button" id="foreignBtn" class="btn btn-circle btn-xl"><span class="text-white"><b>해외</b></span></button>
 					</div>
@@ -48,7 +52,7 @@
 	$(document).ready(function(){
 		
 		$("#domesticBtn").on("click", function(){
-			location.href="/randomday/user/signin/view";
+			location.href="/randomday/domestic/select";
 		});
 		
 		

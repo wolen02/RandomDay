@@ -24,4 +24,10 @@ public interface UserDAO {
 			, @Param("sex") String sex
 			, @Param("email") String email);
 	
+	
+	// 로그인 아이디를 통해 해당 유저가 존재하는지 아닌지 확인
+	
+	public int selectUserByLoginId(
+			@Param("loginId") String loginId);
+	
 }

@@ -53,12 +53,12 @@ public class UserBO {
 	
 	public boolean isduplicatedId(String loginId) {
 		
-		User user = userDAO.selectUser(loginId);
+		int count = userDAO.selectUserByLoginId(loginId);
 		
-		if(user == null) {
-			return false;
-		}else {
+		if(count == 1) {
 			return true;
+		}else {
+			return false;
 		}
 		
 	}

@@ -14,13 +14,15 @@
 
 	<div id="wrap">
 		
-		<header class="mt-3">
-			<div class="d-flex justify-content-between">
-				<h2><b>무작위하루</b></h2><span>주지성님</span>
+		<header class="mt-5 mb-3">
+			<div class="d-flex justify-content-center my-3 main-box">
+				<h1 class="text-center mb-2 mainBanner"><b>R</b><b>A</b><b>N</b><b>D</b></h1>
+				<img width="50px" height="50px" src="/static/images/지구.png" id="earth" alt="지구">
+				<h1 class="text-center mb-2 mainBanner"><b>M</b>&nbsp;<b>D</b><b>A</b><b>Y</b></h1>
 			</div>
 		</header>
 		
-		<section class="d-flex justify-content-center align-items-center">
+		<section class="d-flex justify-content-center align-items-center height500">
 			
 			<div class="signup_box d-flex justify-content-center align-items-center">
 				
@@ -53,7 +55,7 @@
 						</button>
 					</div>
 					
-					<div class="text-white small text-center mt-2">이미 아이디가 있으신가요?</div>
+					<div class="text-white small text-center mt-3">이미 아이디가 있으신가요?</div>
 					
 					<div class="text-center mt-2"><a href="/randomday/user/signin/view">로그인</a></div>
 					
@@ -93,12 +95,18 @@
 			
 			let id = $("#inputId").val();
 			
+			// 중복확인을 누를 때 아이디가 공백일 때 
+			if(id == ""){
+				alert("아이디를 입력해주세요");
+				return;
+			}
+			
 			$.ajax({
 				type:"get"
 				, url:"/user/duplicate_id"
 				, data:{"loginId":id}
 				, success:function(data){
-					if(data.result){
+					if(data.result != "success"){
 						alert("이미 존재하는 아이디입니다.");
 						return;
 					}else{

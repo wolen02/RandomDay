@@ -82,9 +82,19 @@ public class UserRestController {
 	// 중복확인 api
 	
 	@GetMapping("/duplicate_id")
-	public boolean isDuplicate(@RequestParam("loginId") String loginId){
+	public Map<String, String> isDuplicate(@RequestParam("loginId") String loginId){
 		
-		return userBO.isduplicatedId(loginId);
+		Map<String, String> map = new HashMap<>();
+		
+		boolean result = userBO.isduplicatedId(loginId);
+		
+		if(!result) {
+			map.put("result", "success");
+		}else {
+			map.put("result", "fail");
+		}
+		
+		return map;
 		
 		
 	}
