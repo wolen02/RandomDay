@@ -1,20 +1,23 @@
 package com.wolen.randomday.domestic.bo;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wolen.randomday.domestic.dao.DomesticDAO;
 import com.wolen.randomday.domestic.model.DoAndSi;
 import com.wolen.randomday.domestic.model.Gu;
-import com.wolen.randomday.domestic.model.Result;
+import com.wolen.randomday.domestic.model.SearchResponse;
 
 @Service
 public class DomesticBO {
@@ -53,37 +56,28 @@ public class DomesticBO {
 		
 	}
 	
-	
-	// 검색 카테고리 기반으로 결과가 존재하는지 안하는지 여부
-	
-	public int isResultExist(
-			String doName
-			, String guName) {
-		
-		Result result = domesticDAO.selecResult(doName, guName);
-		
-		if(result != null) {
-			return 1;
-		}else {
-			return 0;
-		}
-
-		
-	}
-	
-
-	
 	// 검색 카테고리 기반으로 결과 출력
 	
-	public Object getResult(
-			String doName
-			, String guName) throws IOException {
-
+		@Autowired
+		private RestTemplate restTemplate;
 		
-	}
-	
-	
-	
-	
-	
+
+
+		public SearchResponse getResult(String searchKey, int display) throws JsonMappingException, JsonProcessingException {
+		    String url = "https://openapi.naver.com/v1/search/local.json?query={query}&display={display}";
+
+		    HttpHeaders headers = new HttpHeaders();
+		    headers.set("X-Naver-Client-Id", "zEb6JKM7AaJpAVOVOoTF");
+		    headers.set("X-Naver-Client-Secret", "7UH5uRIccL");
+
+		    HttpEntity<String> entity = new HttpEntity<>(headers);
+
+		    ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class, searchKey, display);
+
+		    ObjectMapper objectMapper = new ObjectMapper();
+		    SearchResponse result = objectMapper.readValue(response.getBody(), SearchResponse.class);
+
+		    return result;
+		}
+
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.wolen.randomday.domestic.model.DoAndSi;
 import com.wolen.randomday.domestic.model.Gu;
-import com.wolen.randomday.domestic.model.Result;
 
 @Repository
 public interface DomesticDAO {
@@ -22,9 +21,5 @@ public interface DomesticDAO {
 	
 	// 구 선택
 	public List<Gu> selectGuList(@Param("doOrSiId") int doOrSiId);
-	
-	
-	// 검색 카테고리 기반으로 결과 출력
-	public Result selecResult(@Param("doName") String doName, @Param("guName") String guName);
 	
 }

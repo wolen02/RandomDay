@@ -14,9 +14,9 @@
 
 	<h1>결과당</h1>
 
-	<c:forEach var="result" items="${results }">
-		<li>${result }</li>
-	</c:forEach>
+	<h1>${doName }</h1>
+	<h1>${guName }</h1>
+	<h1>${results }</h1>
 
 </body>
 </html>

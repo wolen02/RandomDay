@@ -168,28 +168,18 @@
 		
 		// 검색 버튼 누를 때 결과페이지로 넘어가기
 		$("#searchBtn").on("click", function(){
-
-			$.ajax({
-				type:"get"
-				, url:"/search/space"
-				, data:{"doName":doName, "guName":guName}
-				, success:function(data){
-					if(data.result == "success"){
-						location.href="/randomday/domestic/result/view?doName=" + doName + "&&guName=" + guName ;
-					}else{
-						alert("검색 실패");
-						return;
-					}
 					
-				}
-				, error:function(){
-					alert("검색 오류");
-					return;
-				}
-			});
-			
+			location.href = "/randomday/domestic/result/view?doName=" + doName + "&&guName=" + guName;
+
 		});
 		
+		
+		// 구 선택 변경 할떄마다 guName에 추가
+		$("#guSelect").change(function(){
+			
+			guName = $("#guSelect").val();
+			
+		});
 		
 		
 		
@@ -219,12 +209,14 @@
 				      		 $("#guSelect").empty();
 				      		 
 				      		 $.each(guList, function(index, gu){
+				      			
+				      			 // 사용자가 이미 선택되어 있는 상태를 보고 선택 안할 수도 있으니까 미리 값 넣어두기
+				      			 if(index == 0){
+				      				 guName = gu;
+				      			 }
+				      			 
 				      			 $("#guSelect").append($("<option>").attr("value", gu).text(gu));
-				      		 });
-				      		 
-				      		 // 구선택 시 구선택 값 변수에 저장
-				      		 guName = "d";
-				      		 
+				      		 });	      		 
 				      			 
 				      		// 지역 선택에 따라 해당 지역 이름 보여주기
 					      	
@@ -260,12 +252,14 @@
 					      		 $("#guSelect").empty();
 					      		 
 					      		 $.each(guList, function(index, gu){
+					      			 
+					      			 // 사용자가 이미 선택되어 있는 상태를 보고 선택 안할 수도 있으니까 미리 값 넣어두기
+					      			 if(index == 0){
+					      				 guName = gu;
+					      			 }
+					      			 
 					      			 $("#guSelect").append($("<option>").attr("value", gu).text(gu));
-					      		 });
-					      		 
-					      		 // 구선택 시 구선택 값 변수에 저장
-					      		 guName = "d";
-					      		 
+					      		 });				      		 
 					      		 
 							     // 버튼을 다시 누를 때 지역 이름이 바뀌기 위해 없애기
 							 	$("#doName").text("");
