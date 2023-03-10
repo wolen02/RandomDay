@@ -3,8 +3,8 @@ package com.wolen.randomday.domestic;
 import java.io.IOException;
 import java.util.List;
 
-import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,15 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wolen.randomday.domestic.bo.DomesticBO;
 import com.wolen.randomday.domestic.model.DoAndSi;
-import com.wolen.randomday.domestic.model.SearchResponse;
+import com.wolen.randomday.domestic.model.Place;
 
 @Controller
 @RequestMapping("/randomday/domestic")
 public class DomesticController {
 	
 	@Autowired
-	private DomesticBO domesticBO;
-	
+	private DomesticBO domesticBO;	
 	
 	// 지역 선택 페이지
 	
@@ -44,18 +43,32 @@ public class DomesticController {
 	public String result(
 			Model model
 			,@RequestParam("doName") String doName
-			, @RequestParam("guName") String guName) throws IOException {
+			, @RequestParam("guName") String guName) throws IOException, JSONException {
+
+		List<Place> results = domesticBO.searchPlaces(doName, guName);
 		
-		String searchKey = doName + guName + "맛집";
+		List<Place> resultsWithImage = domesticBO.getPlaceWithImage(results, doName, guName);
 		
-		SearchResponse results = domesticBO.getResult(searchKey, 10);
+		
 		
 		model.addAttribute("doName", doName);
 		model.addAttribute("guName", guName);
-		model.addAttribute("results", results);
+		model.addAttribute("results", resultsWithImage);
 		
 		return "/randomday/domestic/result";
 		
 	}
+	
+	
+	// 선택 장소 세부정보 페이지
+	
+	@GetMapping("/detail/view")
+	public String detailSpace() {
+		
+		return "/randomday/domestic/detail";
+		
+	}
+	
+	
 	
 }

@@ -145,10 +145,9 @@
 					<button id="searchBtn" class="btn text-white">검색</button>
 				</div>
 
-				
 			</div>
 			
-
+				
 						
 		</section>
 
@@ -157,8 +156,9 @@
 		<c:import url="/WEB-INF/jsp/randomday/include/footer.jsp" />
 		
 	</div>
+	
 <script>
-		
+
 	$(document).ready(function(){
 		
 		
@@ -168,10 +168,11 @@
 		
 		// 검색 버튼 누를 때 결과페이지로 넘어가기
 		$("#searchBtn").on("click", function(){
-					
-			location.href = "/randomday/domestic/result/view?doName=" + doName + "&&guName=" + guName;
-
-		});
+			
+			location.href="/randomday/domestic/result/view?doName=" + doName + "&&guName=" +guName;
+			
+			});		
+			
 		
 		
 		// 구 선택 변경 할떄마다 guName에 추가
@@ -279,14 +280,10 @@
 					}
 		
 				});
-			
 
 		
-		
-	});
-		
-		
-		
+			});
+			
 </script>
 </body>
 </html>
