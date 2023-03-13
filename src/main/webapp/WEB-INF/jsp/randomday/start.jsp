@@ -15,7 +15,9 @@
 	<div id="wrap">
 	
 	
-		<header></header>
+		<header>
+			${userName }
+		</header>
 		
 		
 		<section class="d-flex justify-content-center align-items-center height500">

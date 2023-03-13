@@ -14,22 +14,18 @@ public class UserBO {
 
 	// 아이디와 비밀번호를 통해 로그인
 	
-	public String getUser(
-			String loginId
-			, String password) {
+	public User getUser(
+			String loginId) {
+			
 		
 		User user = userDAO.selectUser(loginId);
 		
 		if(user == null) {
 			return null;
 		}else {
-			String userPassword = user.getPassword();
 			
-			if(password.equals(userPassword)) {
-				return "success";
-			}else {
-				return "failPass";
-			}
+			return user;
+			
 		}
 
 	}

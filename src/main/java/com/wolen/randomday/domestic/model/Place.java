@@ -1,7 +1,8 @@
 package com.wolen.randomday.domestic.model;
 
 public class Place {
-
+	private int id;
+	private int placeId;
 	private String title;
 	private String category;
 	private String address;
@@ -10,11 +11,14 @@ public class Place {
 	private double longitude;
 	private double latitude;
 	private String imageURL;
+	private boolean isLike;
 	
 	
-	public Place(String title, String category, String address, String roadAddress, String telephone,
+	public Place(int id, int placeId , String title, String category, String address, String roadAddress, String telephone,
 			double longitude, double latitude, String imageURL) {
 		
+		this.id = id;
+		this.placeId = placeId;
 		this.title = title;
 		this.category = category;
 		this.address = address;
@@ -25,6 +29,58 @@ public class Place {
 		this.imageURL = imageURL;
 
 	}
+	
+	
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
+
+	public int getPlaceId() {
+		return placeId;
+	}
+
+
+
+
+
+	public boolean isLike() {
+		return isLike;
+	}
+
+
+
+
+
+	public void setLike(boolean isLike) {
+		this.isLike = isLike;
+	}
+
+
+
+
+
+	public void setPlaceId(int placeId) {
+		this.placeId = placeId;
+	}
+
+
+
+
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+
+
 	public String getTitle() {
 		return title;
 	}

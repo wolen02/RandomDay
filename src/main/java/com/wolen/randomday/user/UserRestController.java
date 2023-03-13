@@ -3,8 +3,10 @@ package com.wolen.randomday.user;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,24 +28,40 @@ public class UserRestController {
 	@PostMapping("/signin")
 	public Map<String, String> signin(
 			@RequestParam("loginId") String loginId
-			, @RequestParam("password") String password) {
+			, @RequestParam("password") String password
+			, HttpServletRequest request) {		
 		
+		User user = userBO.getUser(loginId);
 		
 		Map<String, String> map = new HashMap<>();
 		
-		String result = userBO.getUser(loginId, password);
 		
-		if(result == null) {
+		if(user == null) {
 			
 			map.put("result", "failId");
 			
 		}else {
 			
-			if(result.equals("success")) {
+			String userPassword = user.getPassword();
+			
+			// 입력한 비밀번호가 저장된 회원 비밀번호와 같을 때
+			if(userPassword.equals(password)) {
+				
+				HttpSession session = request.getSession();
+				
+				int userId = user.getId();
+				String userPass = user.getPassword();
+				String userName = user.getName();
+				
+				session.setAttribute("userId", userId);
+				session.setAttribute("userPass", userPass);
+				session.setAttribute("userName", userName);
+				
 				map.put("result", "success");
 			}else {
-				map.put("result","failPass");
+				map.put("result", "failPass");
 			}
+			
 			
 		}
 

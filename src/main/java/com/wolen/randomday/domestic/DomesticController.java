@@ -3,6 +3,9 @@ package com.wolen.randomday.domestic;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.stereotype.Controller;
@@ -43,11 +46,16 @@ public class DomesticController {
 	public String result(
 			Model model
 			,@RequestParam("doName") String doName
-			, @RequestParam("guName") String guName) throws IOException, JSONException {
-
+			, @RequestParam("guName") String guName
+			, HttpServletRequest request) throws IOException, JSONException {
+		
+		HttpSession session = request.getSession();
+		
+		int userId = (Integer)session.getAttribute("userId");
+				
 		List<Place> results = domesticBO.searchPlaces(doName, guName);
 		
-		List<Place> resultsWithImage = domesticBO.getPlaceWithImage(results, doName, guName);
+		List<Place> resultsWithImage = domesticBO.getPlaceWithImage(results, doName, guName, userId);
 		
 		
 		

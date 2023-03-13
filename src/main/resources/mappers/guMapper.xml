@@ -22,6 +22,18 @@
   	</select>
   	
   	
+  	<select id="selectGuIdByName" parameterType="String"
+		resultType="int">
+	  		SELECT
+	  			`id`
+	  		FROM
+	  			`gu`
+	  		WHERE
+	  			`name` = #{name}
+	  	
+  	</select>
+  	
+  	
   </mapper>
 
 
