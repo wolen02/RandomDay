@@ -1,0 +1,72 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>좋아요 목록</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="/static/css/style.css" type="text/css">
+</head>
+<body>
+
+	<div id="wrap">
+		
+		<c:import url="/WEB-INF/jsp/randomday/include/header.jsp"></c:import>
+		
+		<section class="d-flex justify-content-center bg-success">
+			
+			<div>
+				
+				<h3>내가 좋아요 한 장소들</h3>
+				
+				<div>
+				
+					<table class="table text-center">
+						
+						<thead>
+							<th>이름</th>
+							<th>분류</th>
+							<th>전화번호</th>
+							<th>주소</th>
+							<th>삭제</th>
+						</thead>
+						
+						<tbody>
+							<c:forEach var="place" items="${places }" varStatus="status">
+							
+								<tr>
+								
+									<td>${place.name }</td>
+									<td>${place.category }</td>
+									<td>${place.telephone }</td>
+									<td>${place.roadAddress }</td>
+									<td><button class="btn btn-primary" data-btn-id="${status.count }">삭제</button></td>
+								</tr>	
+								
+								
+							</c:forEach>
+						
+							
+						</tbody>
+
+					</table>
+				
+				
+				</div>
+				
+			
+			</div>
+			
+		
+		</section>
+		
+		<c:import url="/WEB-INF/jsp/randomday/include/footer.jsp"></c:import>	
+	
+	</div>
+
+</body>
+</html>

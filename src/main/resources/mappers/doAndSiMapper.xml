@@ -41,5 +41,16 @@
   	
   	</select>
   	
+  	  <select id="selectDoOrSiNameById" parameterType="int"
+  		resultType="com.wolen.randomday.domestic.model.DoAndSi">
+  		SELECT
+  			`id`
+  			,`name`
+  		FROM
+  			`DoAndSi`
+  		WHERE
+  		 `id` = #{doId}
+  	</select>	
+  	
   
  </mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  
+ <mapper namespace="com.wolen.randomday.domestic.review.dao.ReviewDAO">
+ 
+ 	<insert id="insertReview">
+ 		INSERT INTO `review`
+ 			(
+				 `userId`
+ 				, `userName`
+ 				, `placeId`
+ 				, `content`
+ 				, `createdAt`
+ 				, `updatedAt`
+ 			)
+ 			VALUE
+ 			(
+ 				#{userId}
+ 				, #{userName}
+ 				, #{placeId}
+ 				, #{content}
+ 				, now()
+ 				, now()
+ 			)
+ 			
+ 	</insert>
+ 	
+ 	<select id="selectReviews" parameterType="int"
+ 		resultType="com.wolen.randomday.domestic.review.model.Review">
+ 		SELECT
+ 			`id`
+ 			, `userId`
+ 			, `userName`
+ 			, `placeId`
+ 			, `content` 		
+ 		FROM
+ 			`review`
+ 		WHERE
+ 		 	`placeId` = #{placeId}
+ 	</select>
+ 	
+ 	
+ 	<select id="selectReviewCount" parameterType="int"
+ 		resultType="int">
+ 		SELECT
+ 			count(1)
+ 		FROM
+ 			`review`
+ 		WHERE
+ 			`placeId` = #{placeId} 	
+ 	</select>
+ 
+ </mapper>

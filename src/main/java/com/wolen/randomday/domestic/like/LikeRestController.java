@@ -62,7 +62,7 @@ public class LikeRestController {
 
 		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = likeBO.unlike(userId, placeId);
+		int count = likeBO.unLike(userId, placeId);
 		
 		Map<String, String> map = new HashMap<>();
 		

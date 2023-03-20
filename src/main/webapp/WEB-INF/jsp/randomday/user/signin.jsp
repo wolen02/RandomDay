@@ -14,12 +14,14 @@
 	
 	<div id="wrap">
 		
-		<header class="mt-5 mb-3">
-			<div class="d-flex justify-content-center my-3 main-box">
-				<h1 class="text-center mb-2 mainBanner"><b>R</b><b>A</b><b>N</b><b>D</b></h1>
-				<img width="50px" height="50px" src="/static/images/지구.png" id="earth" alt="지구">
-				<h1 class="text-center mb-2 mainBanner"><b>M</b>&nbsp;<b>D</b><b>A</b><b>Y</b></h1>
-			</div>
+		<header class="mt-5">
+			<a class="text-decoration-none text-dark" href="/randomday/start/view">
+				<div class="d-flex justify-content-center my-3 main-box">
+					<div class="text-center mainBanner"><b>R</b><b>A</b><b>N</b><b>D</b></div>
+					<img width="60px" height="60px" src="/static/images/지구.png" id="earth" class="mt-2" alt="지구">
+					<div class="text-center mainBanner"><b>M</b>&nbsp;<b>D</b><b>A</b><b>Y</b></div>
+				</div>
+			</a>
 		</header>
 		
 		
@@ -31,14 +33,24 @@
 					
 					<div class="d-flex justify-content-center">
 						<div class="input_box">
-							<div class="my-2"">
-								<input type="text" id="inputId" placeholder="아이디" class="form-control">
-								<div id="idEmpty" class="text-white small">아이디를 입력해주세요</div>
+						
+							<div class="my-2 d-flex justify-content-center">
+								<div>
+									
+									<input type="text" id="inputId" placeholder="아이디" class="form-control">
+									<div id="idEmpty" class="text-white small">아이디를 입력해주세요</div>
+									
+								</div>
 							</div>
 							
-							<div class="my-2">
-								<input type="password" id="inputPass" placeholder="비밀번호" class="form-control">
-								<div id="passEmpty" class="text-white small">비밀번호를 입력해주세요</div>				
+							
+							<div class="d-flex justify-content-center">
+							
+								<div class="my-2">
+									<input type="password" id="inputPass" placeholder="비밀번호" class="form-control">
+									<div id="passEmpty" class="text-white small">비밀번호를 입력해주세요</div>				
+								</div>
+							
 							</div>
 							
 						</div>
@@ -46,7 +58,7 @@
 					
 					
 					<div>
-						<button type="button" id="loginBtn" class="btn btn-primary form-control mt-4 login_btn">로그인</button>
+						<button type="button" id="loginBtn" class="btn form-control mt-4 login_btn">로그인</button>
 					</div>
 					
 					<div class="text-white text-center mt-3">아이디가 없으신가요?</div>

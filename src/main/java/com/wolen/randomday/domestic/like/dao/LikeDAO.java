@@ -1,5 +1,7 @@
 package com.wolen.randomday.domestic.like.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -17,10 +19,18 @@ public interface LikeDAO {
 	
 	// 좋아요 취소 기능
 	
-	public int unlike(@Param("userId") int userId, @Param("placeId") int placeId);
+	public int unLike(@Param("userId") int userId, @Param("placeId") int placeId);
 	
 	
 	// 좋아요 존재여부 확인 기능
 	public int isLike(@Param("userId") int userId, @Param("placeId") int placeId);
+	
+	
+	// userId를 통해 유저가 좋아요 누른 placeId 가져오기
+	public List<Integer> selectLikedPlace(int userId);
+	
+	
+	// placeId를 통해 해당 장소 좋아요 개수 가져오기
+	public int selectLikeCountByPlaceId(int placeId);
 	
 }

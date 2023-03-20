@@ -12,6 +12,7 @@ public class Place {
 	private double latitude;
 	private String imageURL;
 	private boolean isLike;
+	private boolean isPin;
 	
 	
 	public Place(int id, int placeId , String title, String category, String address, String roadAddress, String telephone,
@@ -34,6 +35,22 @@ public class Place {
 	
 	
 	
+	public boolean isPin() {
+		return isPin;
+	}
+
+
+
+
+
+	public void setPin(boolean isPin) {
+		this.isPin = isPin;
+	}
+
+
+
+
+
 	public int getId() {
 		return id;
 	}

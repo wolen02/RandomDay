@@ -17,5 +17,17 @@
   		WHERE
   			`id` = #{randomNumber}
   	</select>
-  
+
+	
+	<select id="selectMenuNameById" parameterType="int" resultType="com.wolen.randomday.domestic.model.MenuCategory">
+  		SELECT
+  			`id`
+  			, `name`
+  		FROM
+  			`menuCategory`
+  		WHERE
+  			`id` = #{menuId}
+  	</select>
+
+
   </mapper>

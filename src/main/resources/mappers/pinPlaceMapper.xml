@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+  <!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <mapper namespace="com.wolen.randomday.domestic.pin.dao.PinDAO">
+  
+  	<insert id="insertPinPlace" parameterType="map">
+  		INSERT INTO `pinPlace`
+  		(
+  			`userId`
+  			, `menuId`
+  			, `createdAt`
+  		)
+  		VALUE
+  		(
+  			#{userId}
+  			, #{menuId}
+  			, now()
+  		)
+  	
+  	</insert>
+  	
+  	<delete id="deletePinPlace" parameterType="map">
+  		DELETE FROM
+  		 `pinPlace`
+  		 WHERE
+  		  `userId` = #{userId} AND `menuId` = #{menuId}
+  	</delete>
+  	
+  	<select id="selectPlacesById" parameterType="map"
+  		resultType="com.wolen.randomday.domestic.model.Place">
+  		SELECT
+  		(
+  			`id`
+  			,`userId`
+  			,`menuId` 
+  		)
+  		FROM
+  			`pinPlace`
+  		WHERE
+  			`userId` = #{userId}
+  		ORDER BY
+  			`menuId`
+  		ASC
+  	
+  	</select>
+  
+  
+  </mapper>

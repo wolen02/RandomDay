@@ -60,5 +60,21 @@ public class UserBO {
 	}
 	
 	
+	// 비밀번호 변경
+	
+	public int modifyPass(int userId, String confirmPassword, String password) {
+		
+		User user = userDAO.selectUserByUserIdAndPass(userId, confirmPassword);
+		
+		if(user != null) {
+			user.setPassword(password);
+			return 1;
+		}else {
+			return 0;
+		}
+				
+	}
+	
+	
 	
 }

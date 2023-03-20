@@ -34,6 +34,21 @@
   	</select>
   	
   	
+  	
+  	  	<select id="selectGuNameById" parameterType="int"
+		resultType="com.wolen.randomday.domestic.model.Gu">
+	  		SELECT
+  			`id`
+  			, `doOrSiId`
+  			, `name`
+  			FROM
+	  			`gu`
+	  		WHERE
+	  			`id` = #{guId}
+	  	
+  	</select>
+  	
+  	
   </mapper>
 
 

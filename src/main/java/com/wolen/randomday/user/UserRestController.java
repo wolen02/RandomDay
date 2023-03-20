@@ -117,4 +117,33 @@ public class UserRestController {
 		
 	}
 	
+	
+	// 비밀번호 변경
+	
+	@PostMapping("/modify/password")
+	public Map<String, String> modifyPass(
+			@RequestParam("confirmPassword") String confirmPassword
+			,@RequestParam("newPassword") String newPassword
+			, HttpServletRequest request){
+		
+		Map<String, String> map = new HashMap<>();
+		
+		
+		HttpSession session = request.getSession();
+		
+		int userId = (Integer)session.getAttribute("userId");
+		
+		int count = userBO.modifyPass(userId, confirmPassword, newPassword);
+		
+		if(count == 1) {
+			map.put("result", "success");
+		}else {
+			map.put("result", "fail");
+		}
+		
+		
+		return map;
+		
+	}
+	
 }

@@ -24,7 +24,7 @@
   	
   	</insert>
   	
-  	<delete id="unlike" parameterType="map">
+  	<delete id="unLike" parameterType="map">
   		DELETE FROM
   			`like`
   		WHERE
@@ -41,6 +41,29 @@
   			`like`
   		WHERE
   			`userId` = #{userId} AND `placeId` = #{placeId}
+  	
+  	</select>
+  	
+  	<select id="selectLikedPlace" parameterType="int"
+  		resultType="int">
+  		SELECT
+  			`placeId`
+  		FROM
+  			`like`
+  		WHERE
+  			`userId` = #{userId}
+  	
+  	
+  	</select>
+  	
+  	<select id="selectLikeCountByPlaceId" parameterType="int"
+  		resultType="int">
+  		SELECT
+  			count(1)
+  		FROM
+  			`like`
+  		WHERE
+  			`placeId` = #{placeId}
   	
   	</select>
   	

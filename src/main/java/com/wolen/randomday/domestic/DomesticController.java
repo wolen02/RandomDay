@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wolen.randomday.domestic.bo.DomesticBO;
+import com.wolen.randomday.domestic.like.bo.LikeBO;
+import com.wolen.randomday.domestic.model.DetailPlace;
 import com.wolen.randomday.domestic.model.DoAndSi;
 import com.wolen.randomday.domestic.model.Place;
+import com.wolen.randomday.domestic.review.bo.ReviewBO;
+import com.wolen.randomday.domestic.review.model.Review;
 
 @Controller
 @RequestMapping("/randomday/domestic")
@@ -24,6 +28,12 @@ public class DomesticController {
 	
 	@Autowired
 	private DomesticBO domesticBO;	
+	
+	@Autowired
+	private LikeBO likeBO;
+	
+	@Autowired
+	private ReviewBO reviewBO;
 	
 	// 지역 선택 페이지
 	
@@ -53,7 +63,7 @@ public class DomesticController {
 		
 		int userId = (Integer)session.getAttribute("userId");
 				
-		List<Place> results = domesticBO.searchPlaces(doName, guName);
+		List<Place> results = domesticBO.searchPlaces(userId, doName, guName);
 		
 		List<Place> resultsWithImage = domesticBO.getPlaceWithImage(results, doName, guName, userId);
 		
@@ -71,7 +81,46 @@ public class DomesticController {
 	// 선택 장소 세부정보 페이지
 	
 	@GetMapping("/detail/view")
-	public String detailSpace() {
+	public String detailSpace(
+			HttpServletRequest request
+			,Model model
+			,@RequestParam("placeId") int placeId) throws IOException, JSONException {
+		
+		
+		DetailPlace place = domesticBO.getDetailPlace(placeId);
+		
+		// session 에서 로그인 아이디를 통해 place의 isLike 좋아요 여부 확인
+		
+		HttpSession session = request.getSession();
+		
+		int userId = (Integer)session.getAttribute("userId");
+		
+		
+		// 좋아요 여부 세팅
+		
+		boolean isLike = likeBO.isLike(userId, placeId);
+		
+		place.setLike(isLike);
+		
+		// 좋아요 개수 세팅
+		
+		int likeCount = likeBO.getLikeCountByplaceId(placeId);
+		
+		
+		// 리뷰 세팅
+		
+		List<Review> reviews = reviewBO.getReviews(placeId);
+		
+		
+		// 리뷰 개수 세팅
+		
+		int reviewCount = reviewBO.getReviewsCount(placeId);
+		
+		model.addAttribute("likeCount", likeCount);
+		model.addAttribute("reviews", reviews);
+		model.addAttribute("placeId", placeId);
+		model.addAttribute("place", place);
+		model.addAttribute("reviewCount", reviewCount);
 		
 		return "/randomday/domestic/detail";
 		

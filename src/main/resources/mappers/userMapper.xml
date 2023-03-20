@@ -61,6 +61,24 @@
   		WHERE
   			`loginId` = #{loginId} 
   	</select>
+  	
+  	<select id="selectUserByUserIdAndPass" parameterType="map"
+  		resultType="com.wolen.randomday.user.model.User">
+  		SELECT
+  			 `id`
+  			, `loginId`
+  			, `password`
+  			, `name`
+  			, `birth`
+  			, `sex`
+  			, `email`
+  			, `createdAt`
+  			, `updatedAt`
+  		FROM
+  			`user`
+  		WHERE
+  			`id` = #{userId} AND `password` = #{password}
+  	</select>
   
   
   </mapper>

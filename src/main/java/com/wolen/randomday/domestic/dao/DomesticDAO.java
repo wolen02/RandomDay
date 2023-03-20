@@ -36,4 +36,16 @@ public interface DomesticDAO {
 	public int selectGuIdByName(@Param("name") String name);
 	
 	
+	// 도 아이디를 통해서 이름 얻어오기
+	public DoAndSi selectDoOrSiNameById(@Param("doId") int doId);
+	
+	
+	// 구 아이디를 통해서 이름 얻어오기
+	public Gu selectGuNameById(@Param("guId") int guId);
+	
+	
+	// 메뉴 아이디를 통해서 메뉴 이름 얻어괴
+	public MenuCategory selectMenuNameById(@Param("menuId") int menuId);
+	
+	
 }
