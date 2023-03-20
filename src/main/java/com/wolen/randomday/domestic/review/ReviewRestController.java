@@ -1,20 +1,16 @@
 package com.wolen.randomday.domestic.review;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wolen.randomday.domestic.review.bo.ReviewBO;
-import com.wolen.randomday.domestic.review.model.Review;
 
 @RestController
 public class ReviewRestController {
@@ -27,7 +23,7 @@ public class ReviewRestController {
 	@PostMapping("/add/review")
 	public Map<String, String> addReview(
 			HttpServletRequest request
-			, int placeId, String content){
+			,double point, int placeId, String content){
 		
 		HttpSession session = request.getSession();
 		
@@ -35,7 +31,7 @@ public class ReviewRestController {
 		
 		String userName = (String)session.getAttribute("userName");
 		
-		int count = reviewBO.addReview(userId, userName, placeId, content);
+		int count = reviewBO.addReview(userId, userName, point, placeId, content);
 		
 		Map<String, String> map = new HashMap<>();
 		

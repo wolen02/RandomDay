@@ -14,6 +14,7 @@
 				 `userId`
  				, `userName`
  				, `placeId`
+ 				, `point`
  				, `content`
  				, `createdAt`
  				, `updatedAt`
@@ -23,6 +24,7 @@
  				#{userId}
  				, #{userName}
  				, #{placeId}
+ 				, #{point}
  				, #{content}
  				, now()
  				, now()
@@ -37,6 +39,7 @@
  			, `userId`
  			, `userName`
  			, `placeId`
+ 			, `point`
  			, `content` 		
  		FROM
  			`review`

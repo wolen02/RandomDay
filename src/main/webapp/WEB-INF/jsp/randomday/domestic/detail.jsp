@@ -96,11 +96,22 @@
 			        <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
 			          <i class="bi bi-x" style="text-size:10px;"></i>
 			        </button>
+				  
 			      </div>
-					
-
+			      <div class="modal-body">
+			      
+				     <!-- 별점 매기기 -->
+				     
+					 <P id="star">
+					   <a href="#" value="1"><i class="bi bi-star-fill"></i></a>
+					   <a href="#" value="2"><i class="bi bi-star-fill"></i></a>
+					   <a href="#" value="3"><i class="bi bi-star-fill"></i></a>
+					   <a href="#" value="4"><i class="bi bi-star-fill"></i></a>
+					   <a href="#" value="5"><i class="bi bi-star-fill"></i></a>
+					  <p>
 					
 			       	<textarea id="content" class="form-control"></textarea>
+			       	
 			      </div>
 			      
 			      <div class="modal-footer">
@@ -130,9 +141,11 @@
 			      
 			      	<table class="table">
 			      		<thead>
-			      			<th>작성자</th>
-			      			<th>내용</th>
-			      			<th>별점</th>
+			      			<tr>
+				      			<th>작성자</th>
+				      			<th>내용</th>
+				      			<th>별점</th>
+			      			</tr>
 			      		</thead>
 			      		<tbody>
 					      	
@@ -141,7 +154,7 @@
 					       		<tr>
 					      			<td>${review.getUserName() }</td>
 					      			<td>${review.getContent() }</td>
-					      			<td>4.0</td>
+					      			<td>${review.getPoint() }</td>
 					      		</tr>
 					       	
 					       	</c:forEach>
@@ -159,9 +172,32 @@
 	
 		$(document).ready(function(){
 			
+			var point = 0;
+			
+			// 별점주기
+			$('#star a').click(function(){ 
+				 $(this).parent().children("a").removeClass("on");    
+				 $(this).addClass("on").prevAll("a").addClass("on");
+				 
+				 point = $(this).attr("value");
+			 });
+			
+			// 마우스 올렸을 때 별 색칠되기
+			$("#star a").mousemove(function(){
+				 $(this).parent().children("a").removeClass("on");    
+				 $(this).addClass("on").prevAll("a").addClass("on");
+			
+			  });
+			
+			// 마우스 안올렸을 때 별 색칠 취소(클릭하면 작동안되게 하기)
+			if(point = 0){
+				$("#star a").mouseout(function(){
+					 $(this).parent().children("a").removeClass("on");    
+				
+				  });
+			}
 			
 
-			
 			
 			// review 얻어오기
 			$("#showReview").on("click", function(){
@@ -182,11 +218,10 @@
 				let content = $("#content").val();
 				let placeId = $("#placeId").text();
 				
-				
 				$.ajax({
 					type:"post"
 					, url:"/add/review"
-					, data:{"placeId":placeId, "content":content}
+					, data:{"placeId":placeId,"point":point, "content":content}
 					, success:function(data){
 						if(data.result == "success"){
 							// 리뷰 작성 완료표시와 함께 모달 창 닫기

@@ -19,11 +19,12 @@ public class ReviewBO {
 	public int addReview(
 			int userId
 			, String userName
+			, double point
 			, int placeId
 			, String content
 			) {
 		
-		return reviewDAO.insertReview(userId, userName, placeId, content);
+		return reviewDAO.insertReview(userId, userName, point, placeId, content);
 		
 	}
 	

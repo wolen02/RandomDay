@@ -8,9 +8,19 @@ public class Review {
 	private int userId;
 	private String userName;
 	private int placeId;
+	private double point;
 	private String content;
 	private Date createdAt;
 	private Date updatedAt;
+	
+	
+	
+	public double getPoint() {
+		return point;
+	}
+	public void setPoint(double point) {
+		this.point = point;
+	}
 	public int getId() {
 		return id;
 	}

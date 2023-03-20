@@ -18,9 +18,18 @@
 		<header class="d-flex justify-content-end">
 			<div class="main-box userInfo">
 				<div>
-				<a href="/randomday/user/userpage/view"><img class="mx-2 mb-1" width="25px" src="/static/images/사용자 아이콘.png"></a>
-				${userName }님, 반갑습니다. 
-				<a href="/randomday/start/view">로그아웃</a>
+				<c:choose>
+					<c:when test="${userName != null }">
+						<a href="/randomday/user/userpage/view"><img class="mx-2 mb-1" width="25px" src="/static/images/사용자 아이콘.png"></a>
+							${userName }님, 반갑습니다. 
+						<a href="/randomday/signout">로그아웃</a>
+					</c:when>
+					
+					<c:otherwise> 
+						<a href="/randomday/signin/view">로그인</a>
+					</c:otherwise>
+				</c:choose>
+
 				</div>
 			</div>
 		</header>

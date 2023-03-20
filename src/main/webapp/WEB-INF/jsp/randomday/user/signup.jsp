@@ -57,7 +57,7 @@
 					
 					<div class="text-white small text-center mt-3">이미 아이디가 있으신가요?</div>
 					
-					<div class="text-center mt-2"><a href="/randomday/user/signin/view">로그인</a></div>
+					<div class="text-center mt-2"><a href="/randomday/signin/view">로그인</a></div>
 					
 				</div>
 				

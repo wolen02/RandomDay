@@ -62,7 +62,7 @@
 					</div>
 					
 					<div class="text-white text-center mt-3">아이디가 없으신가요?</div>
-					<div class="text-center mt-2"><a href="/randomday/user/signup/view">회원가입</a></div>
+					<div class="text-center mt-2"><a href="/randomday/signup/view">회원가입</a></div>
 				
 			
 				</div>

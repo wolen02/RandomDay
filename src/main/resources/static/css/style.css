@@ -23,6 +23,16 @@ header .mainBanner{
 	height:500px;
 }
 
+ #star a{
+   text-decoration: none;
+   color: gray; 
+   font-size: 30px;
+ }
+ 
+ #star a.on{
+   color: #ffff80;
+ } 
+
 section .mainBanner{
 	font-size:100px;
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wolen.randomday.domestic.bo.DomesticBO;
@@ -17,7 +18,7 @@ import com.wolen.randomday.domestic.like.bo.LikeBO;
 import com.wolen.randomday.domestic.model.DetailPlace;
 
 @Controller
-@RequestMapping("/randomday/user")
+@RequestMapping("/randomday")
 public class UserController {
 
 	@Autowired
@@ -44,7 +45,7 @@ public class UserController {
 	
 	// 유저 페이지 불러오기
 	
-	@RequestMapping("/userpage/view")
+	@RequestMapping("/user/userpage/view")
 	public String userpage(HttpServletRequest request) {
 		
 		// 오른쪽 위에 프로필 표시를 위해 session에서 값 얻어오기
@@ -60,7 +61,7 @@ public class UserController {
 	
 	// 좋아요 장소 목록 불러오기
 	
-	@RequestMapping("/likespaces/view")
+	@RequestMapping("/user/likespaces/view")
 	public String likeSpaces(HttpServletRequest request, Model model) throws IOException, JSONException {
 		
 		// 해당 유저가 좋아요 표시한 장소를 가져오기 위해 session에서 id얻어오기
@@ -85,11 +86,26 @@ public class UserController {
 	
 	
 	// 회원정보 수정 페이지 불러오기
-	@RequestMapping("/modify/view")
+	@RequestMapping("/user/modify/view")
 	public String modifyInfo() {
 		
 		
 		return "/randomday/user/modify";
+		
+	}
+	
+	
+	// 로그아웃
+	@GetMapping("/signout")
+	public String signout(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		
+		session.removeAttribute("userId");
+		session.removeAttribute("userPass");
+		session.removeAttribute("userName");
+		
+		return "redirect:/randomday/start/view";
 		
 	}
 	

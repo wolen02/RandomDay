@@ -18,7 +18,13 @@
 		<c:import url="/WEB-INF/jsp/randomday/include/header.jsp"></c:import>
 		
 		
-		<i class="bi bi-arrow-clockwise"></i>
+		
+		<div id="refreshBtn" class="btn">
+			<i class="bi bi-arrow-clockwise"></i>		
+		</div>
+		
+		
+
 		
 		<section class="bg-success">
 			
@@ -81,6 +87,14 @@
 	
 	
 	$(document).ready(function(){
+		
+		// 새로고침 버튼을 누르면 재검색
+		$("#refreshBtn").on("click", function(){
+			
+			location.reload();
+			
+		});
+		
 		
 				
 		

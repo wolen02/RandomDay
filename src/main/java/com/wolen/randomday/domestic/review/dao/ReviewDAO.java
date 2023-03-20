@@ -14,6 +14,7 @@ public interface ReviewDAO {
 	
 	public int insertReview(@Param("userId") int userId
 			,@Param("userName") String userName
+			,@Param("point") double point
 			,@Param("placeId") int placeId
 			,@Param("content") String content);
 	
