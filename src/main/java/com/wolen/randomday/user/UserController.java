@@ -46,14 +46,16 @@ public class UserController {
 	// 유저 페이지 불러오기
 	
 	@RequestMapping("/user/userpage/view")
-	public String userpage(HttpServletRequest request) {
+	public String userpage(HttpServletRequest request, Model model) {
 		
 		// 오른쪽 위에 프로필 표시를 위해 session에서 값 얻어오기
 		
 		HttpSession session = request.getSession();
 		
 		int userId = (Integer)session.getAttribute("userId");
-
+		String userName = (String)session.getAttribute("userName");
+		
+		model.addAttribute("userName", userName);
 		
 		return "randomday/user/userpage";
 	}
@@ -77,7 +79,8 @@ public class UserController {
 		// placeId들을 통해 장소들 가져오기
 		 List<DetailPlace> placeList = domesticBO.getDetailPlaces(placeIdList);
 		
-		model.addAttribute("places", placeList);
+		 model.addAttribute("placesId", placeIdList);
+		 model.addAttribute("places", placeList);
 
 		
 		

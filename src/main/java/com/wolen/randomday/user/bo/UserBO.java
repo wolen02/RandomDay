@@ -2,7 +2,10 @@ package com.wolen.randomday.user.bo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.wolen.randomday.common.EncryptUtils;
+import com.wolen.randomday.common.FileManagerService;
 import com.wolen.randomday.user.dao.UserDAO;
 import com.wolen.randomday.user.model.User;
 
@@ -41,7 +44,9 @@ public class UserBO {
 			, String sex
 			, String email) {
 		
-		return userDAO.insertUser(loginId, password, name, birth, sex, email);
+		String encryptPass = EncryptUtils.md5(password);
+		
+		return userDAO.insertUser(loginId, encryptPass, name, birth, sex, email);
 		
 	}
 	
@@ -63,18 +68,40 @@ public class UserBO {
 	// 비밀번호 변경
 	
 	public int modifyPass(int userId, String confirmPassword, String password) {
+
+		// 기존비밀번호
+		String encryptConfirmPass = EncryptUtils.md5(confirmPassword);
 		
-		User user = userDAO.selectUserByUserIdAndPass(userId, confirmPassword);
+		// 새로운 비밀번호
+		String encryptPass = EncryptUtils.md5(password);
+		
+		User user = userDAO.selectUserByUserIdAndPass(userId, encryptConfirmPass);
+		
 		
 		if(user != null) {
-			user.setPassword(password);
-			return 1;
+			return userDAO.updateNewPassById(userId, encryptPass);
 		}else {
 			return 0;
 		}
 				
 	}
 	
+	// 기존 프로필 제거 후 새로 등록
 	
+	public int modifyProfile(int userId, MultipartFile file) {
+		
+		String imagePath = FileManagerService.saveFile(userId, file);
+		
+		// 기존 이미지 삭제
+		int count = userDAO.deleteImage(userId);
+		
+		// 이미지 등록
+		if(count == 1) {
+			return userDAO.updateImage(userId, imagePath);
+		}else {
+			return 0;
+		}
+		
+	}
 	
 }

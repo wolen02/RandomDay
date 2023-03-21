@@ -20,15 +20,27 @@
 	
 		<section>
 			
-			<label>현재 비밀번호 입력</label>
-			<input id="confirmPass" class="form-control" type="password">
 			
-			<label>새 비밀번호 입력</label>
-			<input id="newPass" class="form-control" type="password">
+			<div class="">
+				
+				<img class="mx-2 mb-1" width="25px" src="/static/images/사용자 아이콘.png">
+				<input type="file" id="inputFile">
+				
+				<button id="imageChangeBtn" class="btn btn-secondary">프로필 변경</button>
 			
-			<button id="modifyBtn" class="btn btn-primary">비밀번호 변경</button>
+			</div>
 			
 			
+			<div>
+				<label>현재 비밀번호 입력</label>
+				<input id="confirmPass" class="form-control" type="password">
+				
+				<label>새 비밀번호 입력</label>
+				<input id="newPass" class="form-control" type="password">
+				
+				<button id="modifyBtn" class="btn btn-primary">비밀번호 변경</button>
+			</div>
+
 			
 		</section>
 	
@@ -43,10 +55,55 @@
 	$(document).ready(function(){
 		
 		
+		// 프로필 변경
+		$("#imageChangeBtn").on("click", function(){
+			
+			var formData = new FormData();
+			
+			formData.append("file", $("#inputFile")[0].files[0]);
+			
+			$.ajax({
+				type:"post"
+				, url:"/user/modify/profile"
+				,data:formData
+				, enctype:"multipart/form-data"
+				, processData:false
+				, contentType:false
+				, success: function(data){
+					if(data.result == "success"){
+						location.href="/randomday/user/userpage/view";
+					}else{
+						alert("프로필 변경 실패");
+						return;
+					}
+				}
+				, error: function(){
+					alert("프로필 변경 오류");
+					return;
+				}
+			});
+			
+			
+		});
+		
+		
+		
+		
+		// 비밀번호 변경
 		$("#modifyBtn").on("click", function(){
 			
 			let confirmPass = $("#confirmPass").val();
 			let newPass = $("#newPass").val();
+			
+			if(confirmPass == ""){
+				alert("비밀번호를 입력해주세요");
+				return;
+			}
+			
+			if(newPass == ""){
+				alert("새로운 비밀번호를 입력해주세요");
+				return;
+			}
 			
 			$.ajax({
 				type:"post"
@@ -55,7 +112,7 @@
 				, success:function(data){
 					if(data.result == "success"){
 						alert("비밀번호가 성공적으로 변경되었습니다.");
-						location.reload();
+						location.href="/randomday/user/userpage/view";
 					}else{
 						alert("비밀번호 변경 실패");
 						return;

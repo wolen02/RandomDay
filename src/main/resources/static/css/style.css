@@ -182,6 +182,14 @@ section .height500{
 	width:500px;
 }
 
+.point-box{
+	margin: 5px 0 20px 20px;
+}
+
+.point_score{
+	font-size:25px;
+}
+
 #placeId{
 	display:none;
 }

@@ -101,14 +101,20 @@
 			      <div class="modal-body">
 			      
 				     <!-- 별점 매기기 -->
-				     
-					 <P id="star">
-					   <a href="#" value="1"><i class="bi bi-star-fill"></i></a>
-					   <a href="#" value="2"><i class="bi bi-star-fill"></i></a>
-					   <a href="#" value="3"><i class="bi bi-star-fill"></i></a>
-					   <a href="#" value="4"><i class="bi bi-star-fill"></i></a>
-					   <a href="#" value="5"><i class="bi bi-star-fill"></i></a>
-					  <p>
+				     <div class="d-flex">
+				     	<P id="star">
+						  <a href="#" value="1"><i class="bi bi-star-fill"></i></a>
+						  <a href="#" value="2"><i class="bi bi-star-fill"></i></a>
+						  <a href="#" value="3"><i class="bi bi-star-fill"></i></a>
+						  <a href="#" value="4"><i class="bi bi-star-fill"></i></a>
+						  <a href="#" value="5"><i class="bi bi-star-fill"></i></a>
+						 <p>
+						 
+						 <div class="point-box">
+						 	<div class="point_score"></div>
+						 </div>
+				     </div>
+					 
 					
 			       	<textarea id="content" class="form-control"></textarea>
 			       	
@@ -186,7 +192,13 @@
 			$("#star a").mousemove(function(){
 				 $(this).parent().children("a").removeClass("on");    
 				 $(this).addClass("on").prevAll("a").addClass("on");
-			
+				 
+				 
+				 // 별점 점수로 시각화
+				 point = $(this).attr("value");
+				 
+				 $(".point_score").text(point + ".0");
+				 
 			  });
 			
 			// 마우스 안올렸을 때 별 색칠 취소(클릭하면 작동안되게 하기)

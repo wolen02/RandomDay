@@ -34,4 +34,14 @@ public interface UserDAO {
 	// userId와 password를 통해 회원 접근
 	public User selectUserByUserIdAndPass(@Param("userId") int userId, @Param("password") String password);
 	
+	// userId를 통해 비밀번호 재설정
+	public int updateNewPassById(@Param("userId")int userId, @Param("password") String password);
+	
+	// userId를 통해 imagePath등록
+	public int updateImage(@Param("userId") int userId,@Param("imagePath") String imagePath);
+	
+	// userId를 통해 imagePath삭제
+	public int deleteImage(@Param("userId") int userId);
+	
+	
 }

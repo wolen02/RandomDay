@@ -14,12 +14,14 @@
 
 	<div id="wrap">
 		
-		<header class="mt-5 mb-3">
-			<div class="d-flex justify-content-center my-3 main-box">
-				<h1 class="text-center mb-2 mainBanner"><b>R</b><b>A</b><b>N</b><b>D</b></h1>
-				<img width="50px" height="50px" src="/static/images/지구.png" id="earth" alt="지구">
-				<h1 class="text-center mb-2 mainBanner"><b>M</b>&nbsp;<b>D</b><b>A</b><b>Y</b></h1>
-			</div>
+		<header class="mt-5">
+			<a class="text-decoration-none text-dark" href="/randomday/start/view">
+				<div class="d-flex justify-content-center my-3 main-box">
+					<div class="text-center mainBanner"><b>R</b><b>A</b><b>N</b><b>D</b></div>
+					<img width="60px" height="60px" src="/static/images/지구.png" id="earth" class="mt-2" alt="지구">
+					<div class="text-center mainBanner"><b>M</b>&nbsp;<b>D</b><b>A</b><b>Y</b></div>
+				</div>
+			</a>
 		</header>
 		
 		<section class="d-flex justify-content-center align-items-center height500">
@@ -192,7 +194,7 @@
 				, data:{"loginId":id, "password":pass, "name":name, "birth":birth, "sex":sex, "email":email}
 				, success:function(data){
 					if(data.result == "success"){
-						location.href="/randomday/domestic/select/view"
+						location.href="/randomday/start/view"
 					}else{
 						alert("회원가입 실패");
 					}

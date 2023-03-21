@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.wolen.randomday.common.EncryptUtils;
 import com.wolen.randomday.user.bo.UserBO;
 import com.wolen.randomday.user.model.User;
 
@@ -43,18 +45,18 @@ public class UserRestController {
 		}else {
 			
 			String userPassword = user.getPassword();
+			String encryptPass = EncryptUtils.md5(password);
 			
 			// 입력한 비밀번호가 저장된 회원 비밀번호와 같을 때
-			if(userPassword.equals(password)) {
+			if(userPassword.equals(encryptPass)) {
 				
 				HttpSession session = request.getSession();
 				
 				int userId = user.getId();
-				String userPass = user.getPassword();
 				String userName = user.getName();
 				
 				session.setAttribute("userId", userId);
-				session.setAttribute("userPass", userPass);
+				session.setAttribute("userPass", userPassword);
 				session.setAttribute("userName", userName);
 				
 				map.put("result", "success");
@@ -145,5 +147,30 @@ public class UserRestController {
 		return map;
 		
 	}
+	
+	// 프로필 변경
+	@PostMapping("/modify/profile")
+	public Map<String, String> modifyProfile(
+			HttpServletRequest request
+			, @RequestParam("file") MultipartFile file){
+		
+		HttpSession session = request.getSession();
+		
+		int userId = (Integer)session.getAttribute("userId");
+		
+		int count = userBO.modifyProfile(userId, file);
+		
+		Map<String, String> map = new HashMap<>();
+		
+		if(count == 1) {
+			map.put("result", "success");
+		}else {
+			map.put("result", "fail");
+		}
+		
+		return map;
+		
+	}
+	
 	
 }

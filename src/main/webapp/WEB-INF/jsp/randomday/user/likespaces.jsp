@@ -44,7 +44,7 @@
 									<td>${place.category }</td>
 									<td>${place.telephone }</td>
 									<td>${place.roadAddress }</td>
-									<td><button class="btn btn-primary" data-btn-id="${status.count }">삭제</button></td>
+									<td><button class="btn btn-primary deleteBtn" data-btn-id="${placesId[status.index] }">삭제</button></td>
 								</tr>	
 								
 								
@@ -67,6 +67,45 @@
 		<c:import url="/WEB-INF/jsp/randomday/include/footer.jsp"></c:import>	
 	
 	</div>
+<script>
+	
+	$(document).ready(function(){
+	
+		
+		// 삭제 버튼 누를 때
+		
+		$(".deleteBtn").on("click", function(){
+			
+			
+			let placeId = $(this).data("btn-id");
+			
 
+			$.ajax({
+				type:"get"
+				, url:"/place/unLike"
+				, data:{"placeId":placeId}
+				, success:function(data){
+					if(data.result == "success"){
+						location.reload();
+					}else{
+						alert("장소 삭제 실패");
+						return;
+					}
+				}
+				, error:function(){
+					alert("장소 삭제 오류");
+					return;
+				}
+				
+			});
+			
+			
+		});
+	
+		
+		
+	});
+
+</script>
 </body>
 </html>

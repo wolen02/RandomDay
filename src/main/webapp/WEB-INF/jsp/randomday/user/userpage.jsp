@@ -23,7 +23,12 @@
 				
 				<!--  닉네임 수정  -->
 				
-				<i class="bi bi-gear-fill"></i>
+				<div class="d-flex text-white">
+				
+				<!--  프로필이 존재하면 해당 사진으로 존재 하지 않으면 기본 이미지로 -->
+					<img class="mx-2 mb-1" width="25px" src="/static/images/사용자 아이콘.png"><div>${userName } 님</div><i class="bi bi-gear-fill"></i>
+				</div>
+				
 				
 				
 				<a class="text-decoration-none text-white" href="/randomday/user/likespaces/view">
