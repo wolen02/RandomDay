@@ -21,7 +21,9 @@ public class StartController {
 		HttpSession session = request.getSession();
 		
 		String userName = (String)session.getAttribute("userName");
+		String imagePath = (String)session.getAttribute("imagePath");
 		
+		model.addAttribute("imagePath", imagePath);
 		model.addAttribute("userName", userName);
 		
 		

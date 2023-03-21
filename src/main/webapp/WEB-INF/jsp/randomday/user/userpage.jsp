@@ -17,38 +17,39 @@
 		
 		<c:import url="/WEB-INF/jsp/randomday/include/header.jsp"></c:import>
 	
-		<section class="bg-success height500 d-flex justify-content-center">
+		<section class="height500 d-flex justify-content-center">
 			
-			<div>
+			<div class="mypage box shadow">
 				
 				<!--  닉네임 수정  -->
 				
-				<div class="d-flex text-white">
+				<div class="d-flex mypage_profile">
 				
-				<!--  프로필이 존재하면 해당 사진으로 존재 하지 않으면 기본 이미지로 -->
-					<img class="mx-2 mb-1" width="25px" src="/static/images/사용자 아이콘.png"><div>${userName } 님</div><i class="bi bi-gear-fill"></i>
+				<!--  프로필이 존재하면 해당 사진으로 존재 하지 않으면 기본 이미지로 -->				
+					<c:choose>
+						<c:when test="${imagePath != null }">
+							<img class="mx-2 mb-1 card" src="${imagePath }"><div class="userName">${userName } 님</div>
+						</c:when>
+						
+						<c:otherwise>
+							<img class="mx-2 mb-1 card" src="/static/images/사용자 아이콘.png"><div class="userName">${userName } 님</div>
+						</c:otherwise>
+					</c:choose>
+
+				
 				</div>
 				
 				
 				
-				<a class="text-decoration-none text-white" href="/randomday/user/likespaces/view">
-					<div class="d-flex btn text-white">
-					
-		
-					
-						<i class="bi bi-heart-fill"></i>
-						<div>좋아하는 장소 목록</div>
-
-					
+				<a class="text-decoration-none" href="/randomday/user/likespaces/view">
+					<div class="btn mx-4">
+						<div class="mx-2 mypageBtn"><i class="bi bi-heart-fill mx-2"></i>좋아하는 장소 목록</div>
 					</div>
 				</a>
 				
-				<a class="text-decoration-none text-white" href="/randomday/user/modify/view">
-					<div class="d-flex btn text-white">
-					
-						<i class="bi bi-gear-fill"></i>
-						<div>회원 정보 수정</div>
-					
+				<a class="text-decoration-none" href="/randomday/user/modify/view">
+					<div class=" btn mx-4">
+						<div class="mx-2 mypageBtn"><i class="bi bi-gear-fill mx-2"></i>회원 정보 수정</div>
 					</div>
 				</a>
 				

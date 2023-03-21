@@ -119,6 +119,16 @@ section .login_btn:hover{
 	color:white;
 }
 
+section .dupleBtn{
+	background-color:rgb(105, 186, 123);
+	color:white;
+}
+
+section .dupleBtn:hover{
+	background-color:rgb(69, 150, 87);
+	color:white;
+}
+
 section .map{
 	width:700px;
 	height:729px;
@@ -179,7 +189,44 @@ section .heart{
 
 section .height500{
 	height:500px;
+}
+
+section .mypage{
 	width:500px;
+	height:500px;
+	border-radius: 6%;
+	background-color: rgb(139, 202, 153);
+}
+
+section .mypage_profile{
+	font-weight: 10px;
+	color: white;
+	margin: 30px 0 30px 30px;
+}
+
+.mypage_profile img{
+	border-radius: 50%;
+	width:100px;
+	height:100px;
+}
+
+.mypage_profile img:hover{
+	cursor:pointer;
+}
+
+.userName{
+	font-size:25px;
+	font-weight: 1000;
+	margin: 47px 0 0 12px;
+}
+
+.mypageBtn{
+	font-size:20px;
+	color: white;
+}
+
+.mypageBtn:hover{
+	color: rgb(215, 234, 219);
 }
 
 .point-box{

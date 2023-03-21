@@ -23,7 +23,6 @@ import com.wolen.randomday.domestic.model.Gu;
 import com.wolen.randomday.domestic.model.MenuCategory;
 import com.wolen.randomday.domestic.model.Place;
 import com.wolen.randomday.domestic.pin.bo.PinBO;
-import com.wolen.randomday.domestic.review.model.Review;
 
 
 @Service

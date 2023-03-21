@@ -38,10 +38,15 @@ public class DomesticController {
 	// 지역 선택 페이지
 	
 	@GetMapping("/select")
-	public String select(Model model) {		
+	public String select(Model model, HttpServletRequest request) {		
 
 		List<DoAndSi> doList = domesticBO.getDoOrSi();
 		
+		HttpSession session = request.getSession();
+		
+		String imagePath = (String)session.getAttribute("imagePath");
+		
+		model.addAttribute("imagePath", imagePath);
 		model.addAttribute("doList", doList);
 		
 		return"/randomday/domestic/select";
@@ -62,13 +67,14 @@ public class DomesticController {
 		HttpSession session = request.getSession();
 		
 		int userId = (Integer)session.getAttribute("userId");
+		String imagePath = (String)session.getAttribute("imagePath");
 				
 		List<Place> results = domesticBO.searchPlaces(userId, doName, guName);
 		
 		List<Place> resultsWithImage = domesticBO.getPlaceWithImage(results, doName, guName, userId);
 		
-		
-		
+
+		model.addAttribute("imagePath", imagePath);
 		model.addAttribute("doName", doName);
 		model.addAttribute("guName", guName);
 		model.addAttribute("results", resultsWithImage);
@@ -116,6 +122,11 @@ public class DomesticController {
 		
 		int reviewCount = reviewBO.getReviewsCount(placeId);
 		
+		// 프로필 세팅
+		
+		String imagePath = (String)session.getAttribute("imagePath");		
+		
+		model.addAttribute("imagePath", imagePath);
 		model.addAttribute("likeCount", likeCount);
 		model.addAttribute("reviews", reviews);
 		model.addAttribute("placeId", placeId);

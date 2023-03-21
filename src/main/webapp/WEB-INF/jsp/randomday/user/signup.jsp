@@ -26,13 +26,13 @@
 		
 		<section class="d-flex justify-content-center align-items-center height500">
 			
-			<div class="signup_box d-flex justify-content-center align-items-center">
+			<div class="signup_box shadow d-flex justify-content-center align-items-center">
 				
 				<div>
 					
 					<div class="d-flex">
 						<input type="text" id="inputId" class="form-control input_box2 mx-3" placeholder="아이디">
-						<button type="button" id="duplicatedBtn" class="btn btn-primary"><span class="small"><b>중복확인</b></span></button>
+						<button type="button" id="duplicatedBtn" class="btn dupleBtn"><span class="small"><b>중복확인</b></span></button>
 					</div>
 					
 					<input type="password" id="inputPass" class="form-control mt-2 input_box2 mx-3" placeholder="비밀번호">
@@ -52,7 +52,7 @@
 				
 					
 					<div class="d-flex justify-content-center">
-						<button type="button" id="signupBtn" class="btn btn-primary form-control mt-4">
+						<button type="button" id="signupBtn" class="btn login_btn form-control mt-4">
 						<span class="text-white"><b>회원가입</b></span>
 						</button>
 					</div>

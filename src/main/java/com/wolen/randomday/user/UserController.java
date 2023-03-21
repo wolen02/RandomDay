@@ -55,6 +55,9 @@ public class UserController {
 		int userId = (Integer)session.getAttribute("userId");
 		String userName = (String)session.getAttribute("userName");
 		
+		String imagePath = (String)session.getAttribute("imagePath");
+		
+		model.addAttribute("imagePath", imagePath);
 		model.addAttribute("userName", userName);
 		
 		return "randomday/user/userpage";
@@ -71,16 +74,19 @@ public class UserController {
 		HttpSession session = request.getSession();
 		
 		int userId = (Integer)session.getAttribute("userId");
+		String imagePath = (String)session.getAttribute("imagePath");
 		
 		// userId를 통해 like table에 있는 placeId 가져오기
 		
 		List<Integer> placeIdList = likeBO.getLikedPlaces(userId);
 		
 		// placeId들을 통해 장소들 가져오기
-		 List<DetailPlace> placeList = domesticBO.getDetailPlaces(placeIdList);
-		
-		 model.addAttribute("placesId", placeIdList);
-		 model.addAttribute("places", placeList);
+		List<DetailPlace> placeList = domesticBO.getDetailPlaces(placeIdList);
+
+			
+		model.addAttribute("imagePath", imagePath);
+		model.addAttribute("placesId", placeIdList);
+		model.addAttribute("places", placeList);
 
 		
 		
@@ -107,6 +113,7 @@ public class UserController {
 		session.removeAttribute("userId");
 		session.removeAttribute("userPass");
 		session.removeAttribute("userName");
+		session.removeAttribute("imagePath");
 		
 		return "redirect:/randomday/start/view";
 		

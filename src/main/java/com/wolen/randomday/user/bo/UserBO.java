@@ -88,19 +88,33 @@ public class UserBO {
 	
 	// 기존 프로필 제거 후 새로 등록
 	
-	public int modifyProfile(int userId, MultipartFile file) {
+	public int modifyProfile(int userId, String imagePath) {
 		
-		String imagePath = FileManagerService.saveFile(userId, file);
+
 		
-		// 기존 이미지 삭제
-		int count = userDAO.deleteImage(userId);
+		User user = userDAO.selectUserByuserId(userId);
 		
-		// 이미지 등록
-		if(count == 1) {
-			return userDAO.updateImage(userId, imagePath);
+		// 유저를 통해 이미지 있는 지 확인
+		
+		String image = user.getImagePath();
+		
+		if(image != null) {
+			
+			// 기존 이미지 삭제
+			int count = userDAO.deleteImage(userId);
+			
+			// 이미지 등록
+			if(count == 1) {
+				return userDAO.updateImage(userId, imagePath);
+			}else {
+				return 0;
+			}
+			
 		}else {
-			return 0;
+			return userDAO.updateImage(userId, imagePath);
 		}
+		
+
 		
 	}
 	

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.wolen.randomday.common.EncryptUtils;
+import com.wolen.randomday.common.FileManagerService;
 import com.wolen.randomday.user.bo.UserBO;
 import com.wolen.randomday.user.model.User;
 
@@ -54,10 +55,12 @@ public class UserRestController {
 				
 				int userId = user.getId();
 				String userName = user.getName();
+				String imagePath = user.getImagePath();
 				
 				session.setAttribute("userId", userId);
 				session.setAttribute("userPass", userPassword);
 				session.setAttribute("userName", userName);
+				session.setAttribute("imagePath", imagePath);
 				
 				map.put("result", "success");
 			}else {
@@ -158,7 +161,14 @@ public class UserRestController {
 		
 		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = userBO.modifyProfile(userId, file);
+		// session에 바로 등록하여 프로필 변경 바로 적용을 위한 session 등록
+		
+		String imagePath = FileManagerService.saveFile(userId, file);
+		
+		session.removeAttribute("imagePath");
+		session.setAttribute("imagePath", imagePath);
+		
+		int count = userBO.modifyProfile(userId, imagePath);
 		
 		Map<String, String> map = new HashMap<>();
 		

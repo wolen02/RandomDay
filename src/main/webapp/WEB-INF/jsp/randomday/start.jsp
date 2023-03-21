@@ -20,7 +20,14 @@
 				<div>
 				<c:choose>
 					<c:when test="${userName != null }">
-						<a href="/randomday/user/userpage/view"><img class="mx-2 mb-1" width="25px" src="/static/images/사용자 아이콘.png"></a>
+						<c:choose>
+							<c:when test="${imagePath != null }">
+								<a href="/randomday/user/userpage/view"><img class="mx-2 mb-1 rounded-circle" width="25px" src="${imagePath }"></a>
+							</c:when>
+							<c:otherwise>
+								<a href="/randomday/user/userpage/view"><img class="mx-2 mb-1 rounded-circle" width="25px" src="/static/images/사용자 아이콘.png"></a>
+							</c:otherwise>
+						</c:choose>
 							${userName }님, 반갑습니다. 
 						<a href="/randomday/signout">로그아웃</a>
 					</c:when>
@@ -47,8 +54,8 @@
 
 				
 					<div class="d-flex justify-content-around mt-5 main-box">
-						<button type="button" id="domesticBtn" class="btn btn-circle btn-xl"><span class="text-white"><b>국내</b></span></button>
-						<button type="button" id="foreignBtn" class="btn btn-circle btn-xl"><span class="text-white"><b>해외</b></span></button>
+						<button type="button" id="domesticBtn" class="btn btn-circle btn-xl shadow"><span class="text-white"><b>국내</b></span></button>
+						<button type="button" id="foreignBtn" class="btn btn-circle btn-xl shadow"><span class="text-white"><b>해외</b></span></button>
 					</div>
 
 				
@@ -56,11 +63,9 @@
 			</div>
 		</section>
 		
-		<div class="d-flex justify-content-center align-items-end end">
-			<c:import url="/WEB-INF/jsp/randomday/include/footer.jsp" />
-		</div>
-	
-	
+		
+		
+		<c:import url="/WEB-INF/jsp/randomday/include/footer.jsp" />
 
 	</div>
 
