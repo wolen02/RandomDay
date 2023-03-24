@@ -17,7 +17,7 @@
 		
 		<c:import url="/WEB-INF/jsp/randomday/include/header.jsp"></c:import>
 		
-		<section class="d-flex justify-content-center bg-success">
+		<section class="d-flex justify-content-center">
 			
 			<div>
 				
@@ -30,7 +30,7 @@
 						<thead>
 							<th>이름</th>
 							<th>분류</th>
-							<th>전화번호</th>
+							<th>&nbsp&nbsp&nbsp</th>
 							<th>주소</th>
 							<th>삭제</th>
 						</thead>
@@ -42,9 +42,9 @@
 								
 									<td>${place.name }</td>
 									<td>${place.category }</td>
-									<td>${place.telephone }</td>
+									<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
 									<td>${place.roadAddress }</td>
-									<td><button class="btn btn-primary deleteBtn" data-btn-id="${placesId[status.index] }">삭제</button></td>
+									<td>&nbsp&nbsp<button class="btn btn-success deleteBtn" data-btn-id="${placesId[status.index] }">삭제</button></td>
 								</tr>	
 								
 								

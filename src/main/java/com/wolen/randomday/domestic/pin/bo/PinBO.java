@@ -1,5 +1,6 @@
 package com.wolen.randomday.domestic.pin.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,57 +18,22 @@ public class PinBO {
 	
 	
 	// 장소 고정
-	public int addpin(int userId, int placeId) {
-	
+	public int addpin(int userId
+			, int placeId
+			, String doName
+			, String guName
+			, String menuName
+			, String imagePath
+			, String title) {
 		
-		int placeIdLength = (int)( Math.log10(placeId)+1 );
-		
-		if(placeIdLength == 7) {
-			
-			String stringPlaceId = String.format("%02d", placeId);
-			
-			int menuId = Integer.parseInt(stringPlaceId.substring(4));
-			
-			return pinDAO.insertPinPlace(userId, menuId);
-			
-		}else {
-			
-		
-			String stringPlaceId = String.format("%02d", placeId);
-			
-			int menuId = Integer.parseInt(stringPlaceId.substring(3));
-			
-			return pinDAO.insertPinPlace(userId, menuId);
-			
-		}
-		
+		return pinDAO.insertPinPlace(userId, placeId, doName, guName, menuName, imagePath, title);
 		
 	}
 	
 	// 장소 고정 취소
 	public int unpin(int userId, int placeId) {
 		
-		int placeIdLength = (int)( Math.log10(placeId)+1 );
-		
-		if(placeIdLength == 7) {
-			
-			String stringPlaceId = String.format("%02d", placeId);
-			
-			int menuId = Integer.parseInt(stringPlaceId.substring(4));
-			
-			return pinDAO.deletePinPlace(userId, menuId);
-			
-		}else {
-			
-		
-			String stringPlaceId = String.format("%02d", placeId);
-			
-			int menuId = Integer.parseInt(stringPlaceId.substring(3));
-			
-			return pinDAO.deletePinPlace(userId, menuId);
-			
-		}
-		
+		return pinDAO.deletePinPlace(userId, placeId);
 		
 	}
 	
@@ -75,10 +41,20 @@ public class PinBO {
 	// 고정한 장소 얻어오기
 	public List<PinPlace> getPlaces(int userId){
 			
-			return pinDAO.selectPlacesById(userId);
+		List<PinPlace> pinPlaces = new ArrayList<>();
+		
+		
+		for(PinPlace place:pinDAO.selectPlacesById(userId)) {
+			place.setPin(true);
+			pinPlaces.add(place);
+		}
+		
+			return pinPlaces;
 
 		
 	}
+	
+	
 	
 	
 	

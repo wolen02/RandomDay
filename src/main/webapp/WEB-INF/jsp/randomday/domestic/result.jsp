@@ -13,34 +13,47 @@
 </head>
 <body>
 
-	<div id="wrap" class="bg-info">
+	<div id="wrap">
 		
 		<c:import url="/WEB-INF/jsp/randomday/include/header.jsp"></c:import>
 		
 		
-		
-		<div id="refreshBtn" class="btn">
-			<i class="bi bi-arrow-clockwise"></i>		
+		<div class="d-flex justify-content-center align-items-end">
+			
+			<div class="d-flex align-items-end">
+				<div id="doName" class="selectedDo mx-2">${doName }</div>
+				<div id="guName" class="selectedGu mx-2">${guName } 검색 결과</div>
+			</div>
+			
 		</div>
 		
+		<div class="d-flex justify-content-end text-primary">
+			<div id="refreshBtn" class="btn">
+				<i class="bi bi-arrow-clockwise"></i>		
+			</div>
+		</div>
+
+		<hr>
+
+		<section>
 		
 
-		
-		<section class="bg-success">
+			<div class="d-flex flex-wrap justify-content-center">
 			
-			<div class="bg-danger d-flex flex-wrap justify-content-center">
+			
+			<c:forEach var="result" items="${pinPlaces }">
 				
-				<c:forEach var="result" items="${results }">
-
 					<div class="card my-3 mx-3">
 
 						<div class="d-flex justify-content-around">
-							<div>${result.placeId }</div>
-							
+							<div>${result.title }</div>
+							<div class="none" data-placeMenu-id="${result.placeId }">${result.menuName }</div>
+							<div class="none" data-placeImg-id="${result.placeId }">${result.imagePath }</div>							
 
-								<div class="btn pinBtn" data-pin-id="${result.placeId }"><i class="bi bi-pin"></i></div>
-								<div class="btn pinFillBtn none" data-pin-fill-id="${result.placeId }"><i class="bi bi-pin-fill"></i></div>
 							
+								<!--  핀 무조건 고정되서 나오기 -->
+								<div class="btn pinBtn none" data-pin-id="${result.placeId }"><i class="bi bi-pin"></i></div>
+								<div class="btn pinFillBtn" data-pin-fill-id="${result.placeId }"><i class="bi bi-pin-fill"></i></div>
 							
 							
 							<c:choose>
@@ -59,23 +72,70 @@
 						</div>
 						
 						
-						<a class="text-decoration-none text-dark" href="/randomday/domestic/detail/view?placeId=${result.placeId }">
-							<img class="card-img-top" src="${result.imageURL }" alt="${result.title }">
-						  	
-						  	<div class="card-body">
-						    	<p class="card-text">${result.title}<br></p>
-						  	
+						<a class="text-decoration-none text-dark" href="/randomday/domestic/detail/view?doName=${doName }&guName=${guName }&placeId=${result.placeId }&menuName= ${result.menuName }">
+							<img class="card-img-top" src="${result.imagePath }" alt="${result.title }">
+						  	<div class="card-body">						  	
 						  	</div>
 						
 						</a>
 					 
 					 </div>
-					 
+
+			</c:forEach>
+			
+			
+
+			
+				
+				<c:forEach var="result" items="${results }" varStatus="status">
+								
+								<div class="card my-3 mx-3">
+
+									<div class="d-flex justify-content-around">
+										<div>${result.title }</div>
+										<div class="none" data-placeMenu-id="${result.placeId }">${result.category }</div>
+										<div class="none" data-placeImg-id="${result.placeId }">${result.imageURL }</div>
+													
+													
+										
+																
+										<div class="btn pinBtn" data-pin-id="${result.placeId }"><i class="bi bi-pin"></i></div>
+										<div class="btn pinFillBtn none" data-pin-fill-id="${result.placeId }"><i class="bi bi-pin-fill"></i></div>
+										
+										
+										
+										<c:choose>
+											<c:when test="${!result.like }">
+												<div class="btn heartBtn" data-heart-id="${result.placeId }"><i class="bi bi-suit-heart"></i></div>
+												<div class="btn heartFillBtn none" data-heart-fill-id="${result.placeId }"><i class="bi bi-suit-heart-fill"></i></div>
+											</c:when>
+											
+											<c:otherwise>
+												<div class="btn heartBtn none" data-heart-id="${result.placeId }"><i class="bi bi-suit-heart"></i></div>
+												<div class="btn heartFillBtn" data-heart-fill-id="${result.placeId }"><i class="bi bi-suit-heart-fill"></i></div>
+											</c:otherwise>
+										</c:choose>
+										
+										
+									</div>
+									
+									
+									<a class="text-decoration-none text-dark" href="/randomday/domestic/detail/view?doName=${doName }&guName=${guName }&placeId=${result.placeId }&menuName= ${result.category }">
+										<img class="card-img-top" src="${result.imageURL }" alt="${result.title }">
+									  	<div class="card-body">
+									    	<p class="card-text none" data-title-id="${result.placeId }">${result.title}<br></p>
+									  	
+									  	</div>
+									
+									</a>
+								 
+								 </div>
+
 				</c:forEach>
 				
 			</div>
 		
-		</section>		
+		</section>	
 	
 
 		<c:import url="/WEB-INF/jsp/randomday/include/footer.jsp"></c:import>
@@ -90,6 +150,8 @@
 		
 		// 새로고침 버튼을 누르면 재검색
 		$("#refreshBtn").on("click", function(){
+			
+			$(this).animate({rotate:"360deg"}, 800);
 			
 			location.reload();
 			
@@ -132,12 +194,18 @@
 		$(".pinBtn").on("click", function(){
 			
 			let id = $(this).data("pin-id");
+			let doName = $("#doName").text();
+			let guName = $("#guName").text();
+			let menuName =  $('[data-placeMenu-id="' + id + '"]').text();
+			let imagePath = $('[data-placeImg-id="' + id + '"]').text();
+			let title = $('[data-title-id="' + id + '"]').text();
+			
 			
 			// pin api 불러오기
 			$.ajax({
 				type:"get"
 				, url:"/pin"
-				, data:{"placeId": id}
+				, data:{"placeId": id, "doName":doName, "guName":guName, "menuName": menuName, "imagePath":imagePath, "title":title}
 				, success:function(data){
 					if(data.result == "success"){
 						
@@ -198,12 +266,17 @@
 			
 			let id = $(this).data("heart-id");
 
+			let doName = $("#doName").text();
+			let guName = $("#guName").text();
+			let menuName =  $('[data-placeMenu-id="' + id + '"]').text();
+			let imagePath = $('[data-placeImg-id="' + id + '"]').text();
+
 
 			
 				$.ajax({
 					type:"get"
 					, url:"/place/like"
-					, data:{"placeId":id}
+					, data:{"placeId": id, "doName":doName, "guName":guName, "menuName": menuName, "imagePath":imagePath}
 					, success:function(data){
 						if(data.result == "success"){
 							

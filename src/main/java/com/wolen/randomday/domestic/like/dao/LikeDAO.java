@@ -33,4 +33,5 @@ public interface LikeDAO {
 	// placeId를 통해 해당 장소 좋아요 개수 가져오기
 	public int selectLikeCountByPlaceId(int placeId);
 	
+	
 }

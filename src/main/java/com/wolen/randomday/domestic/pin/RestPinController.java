@@ -24,7 +24,12 @@ public class RestPinController {
 	@GetMapping("/pin")
 	public Map<String, String> pin(
 			HttpServletRequest request
-			,@RequestParam("placeId") int placeId){
+			,@RequestParam("placeId") int placeId
+			, @RequestParam("doName") String doName
+			, @RequestParam("guName") String guName
+			, @RequestParam("menuName") String menuName
+			, @RequestParam("imagePath") String imagePath
+			, @RequestParam("title") String title){
 		
 		// 유저아이디와 장소 아이디를 받아 테이블에 저장
 		
@@ -32,7 +37,7 @@ public class RestPinController {
 		
 		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = pinBO.addpin(userId, placeId);
+		int count = pinBO.addpin(userId, placeId, doName, guName, menuName, imagePath, title);
 		
 		Map<String, String> map = new HashMap<>();
 		

@@ -8,14 +8,15 @@
   
   <mapper namespace="com.wolen.randomday.domestic.dao.DomesticDAO">
   
-  	<select id="selectMenu" parameterType="int" resultType="com.wolen.randomday.domestic.model.MenuCategory">
+  	<select id="selectMenu" parameterType="int"
+  		 resultType="com.wolen.randomday.domestic.model.MenuCategory">
   		SELECT
   			`id`
   			, `name`
   		FROM
   			`menuCategory`
   		WHERE
-  			`id` = #{randomNumber}
+  			`id` = #{menuId}
   	</select>
 
 	

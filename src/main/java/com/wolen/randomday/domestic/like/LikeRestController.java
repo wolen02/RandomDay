@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wolen.randomday.domestic.like.bo.LikeBO;
+import com.wolen.randomday.domestic.model.Place;
 
 @RestController
 @RequestMapping("/place")
@@ -28,15 +29,19 @@ public class LikeRestController {
 	@GetMapping("/like")
 	public Map<String, String> like(
 			HttpServletRequest request
-			, @RequestParam("placeId") int placeId){
+			, @RequestParam("placeId") int placeId
+			, @RequestParam("doName") String doName
+			, @RequestParam("guName") String guName
+			, @RequestParam("menuName") String menuName
+			, @RequestParam("imagePath") String imagePath){
 		
 		// javascript의 val()은 java에 전달되면 String 형태인가
 		
 		HttpSession session = request.getSession();
 		
 		int userId = (Integer)session.getAttribute("userId");
-		
-		int count = likeBO.like(userId, placeId);
+
+		int count = likeBO.like(userId, placeId, doName, guName, menuName, imagePath);
 		
 		Map<String, String> map = new HashMap<>();
 		

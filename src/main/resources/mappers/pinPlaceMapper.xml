@@ -12,13 +12,23 @@
   		INSERT INTO `pinPlace`
   		(
   			`userId`
-  			, `menuId`
+  			, `placeId`
+  			, `doName`
+  			, `guName`
+  			, `menuName`
+  			, `imagePath`
+  			, `title`
   			, `createdAt`
   		)
   		VALUE
   		(
   			#{userId}
-  			, #{menuId}
+  			, #{placeId}
+  			, #{doName}
+  			, #{guName}
+  			, #{menuName}
+  			, #{imagePath}
+  			, #{title}
   			, now()
   		)
   	
@@ -28,23 +38,27 @@
   		DELETE FROM
   		 `pinPlace`
   		 WHERE
-  		  `userId` = #{userId} AND `menuId` = #{menuId}
+  		  `userId` = #{userId} AND `placeId` = #{placeId}
   	</delete>
   	
   	<select id="selectPlacesById" parameterType="map"
-  		resultType="com.wolen.randomday.domestic.model.Place">
+  		resultType="com.wolen.randomday.domestic.pin.model.PinPlace">
   		SELECT
-  		(
   			`id`
   			,`userId`
-  			,`menuId` 
-  		)
+  			, `placeId`
+  			, `doName`
+  			, `guName`
+  			, `menuName`
+  			, `imagePath`
+  			, `title`
+  			, `createdAt`
   		FROM
   			`pinPlace`
   		WHERE
   			`userId` = #{userId}
   		ORDER BY
-  			`menuId`
+  			`placeId`
   		ASC
   	
   	</select>

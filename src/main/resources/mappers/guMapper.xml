@@ -22,14 +22,14 @@
   	</select>
   	
   	
-  	<select id="selectGuIdByName" parameterType="String"
+  	<select id="selectGuIdByName" parameterType="map"
 		resultType="int">
 	  		SELECT
 	  			`id`
 	  		FROM
 	  			`gu`
 	  		WHERE
-	  			`name` = #{name}
+	  			`doOrSiId` = #{doId} AND `name` = #{guName}
 	  	
   	</select>
   	
@@ -44,7 +44,7 @@
   			FROM
 	  			`gu`
 	  		WHERE
-	  			`id` = #{guId}
+	  			`id` = #{guId} 
 	  	
   	</select>
   	

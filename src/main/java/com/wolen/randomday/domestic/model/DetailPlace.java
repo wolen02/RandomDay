@@ -14,8 +14,9 @@ public class DetailPlace {
 	private Review review;
 	private int likeCount;
 	private String menu;
+	private String ImageURL;
 	
-	public DetailPlace(String name, String category, String roadAddress, String telephone, Review review, int likeCount, String menu) {
+	public DetailPlace(String name, String category, String roadAddress, String telephone, Review review, int likeCount, String menu, String imageURL) {
 		
 		this.name = name;
 		this.category = category;
@@ -24,11 +25,27 @@ public class DetailPlace {
 		this.review = review;
 		this.likeCount = likeCount;
 		this.menu = menu;
-		
+		this.ImageURL = imageURL;
 		
 	}
 	
 	
+	
+	
+	public String getImageURL() {
+		return ImageURL;
+	}
+
+
+
+
+	public void setImageURL(String imageURL) {
+		ImageURL = imageURL;
+	}
+
+
+
+
 	public int getId() {
 		return id;
 	}

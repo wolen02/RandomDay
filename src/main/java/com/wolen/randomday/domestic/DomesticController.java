@@ -19,6 +19,8 @@ import com.wolen.randomday.domestic.like.bo.LikeBO;
 import com.wolen.randomday.domestic.model.DetailPlace;
 import com.wolen.randomday.domestic.model.DoAndSi;
 import com.wolen.randomday.domestic.model.Place;
+import com.wolen.randomday.domestic.pin.bo.PinBO;
+import com.wolen.randomday.domestic.pin.model.PinPlace;
 import com.wolen.randomday.domestic.review.bo.ReviewBO;
 import com.wolen.randomday.domestic.review.model.Review;
 
@@ -34,6 +36,9 @@ public class DomesticController {
 	
 	@Autowired
 	private ReviewBO reviewBO;
+	
+	@Autowired
+	private PinBO pinBO;
 	
 	// 지역 선택 페이지
 	
@@ -69,15 +74,18 @@ public class DomesticController {
 		int userId = (Integer)session.getAttribute("userId");
 		String imagePath = (String)session.getAttribute("imagePath");
 				
-		List<Place> results = domesticBO.searchPlaces(userId, doName, guName);
+		List<Place> results = domesticBO.searchPlaces(doName, guName);
 		
 		List<Place> resultsWithImage = domesticBO.getPlaceWithImage(results, doName, guName, userId);
+		
+		List<PinPlace> pinPlaces = pinBO.getPlaces(userId);
 		
 
 		model.addAttribute("imagePath", imagePath);
 		model.addAttribute("doName", doName);
 		model.addAttribute("guName", guName);
 		model.addAttribute("results", resultsWithImage);
+		model.addAttribute("pinPlaces", pinPlaces);
 		
 		return "/randomday/domestic/result";
 		
@@ -90,10 +98,13 @@ public class DomesticController {
 	public String detailSpace(
 			HttpServletRequest request
 			,Model model
-			,@RequestParam("placeId") int placeId) throws IOException, JSONException {
+			, @RequestParam("doName") String doName
+			, @RequestParam("guName") String guName
+			, @RequestParam("placeId") int placeId
+			, @RequestParam("menuName") String menuName) throws IOException, JSONException {
 		
 		
-		DetailPlace place = domesticBO.getDetailPlace(placeId);
+		DetailPlace place = domesticBO.getDetailPlace(doName, guName, placeId, menuName);
 		
 		// session 에서 로그인 아이디를 통해 place의 isLike 좋아요 여부 확인
 		

@@ -1,8 +1,11 @@
 package com.wolen.randomday.domestic.model;
 
+import java.util.Map;
+
 public class Place {
 	private int id;
 	private int placeId;
+	private Map<String, String> placeIdMap;
 	private String title;
 	private String category;
 	private String address;
@@ -15,11 +18,12 @@ public class Place {
 	private boolean isPin;
 	
 	
-	public Place(int id, int placeId , String title, String category, String address, String roadAddress, String telephone,
+	public Place(int id, int placeId, Map<String, String> placeIdMap, String title, String category, String address, String roadAddress, String telephone,
 			double longitude, double latitude, String imageURL) {
 		
 		this.id = id;
 		this.placeId = placeId;
+		this.placeIdMap = placeIdMap;
 		this.title = title;
 		this.category = category;
 		this.address = address;
@@ -35,6 +39,22 @@ public class Place {
 	
 	
 	
+	public Map<String, String> getPlaceIdMap() {
+		return placeIdMap;
+	}
+
+
+
+
+
+	public void setPlaceIdMap(Map<String, String> placeIdMap) {
+		this.placeIdMap = placeIdMap;
+	}
+
+
+
+
+
 	public boolean isPin() {
 		return isPin;
 	}

@@ -1,16 +1,15 @@
 package com.wolen.randomday.domestic.like.bo;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.stereotype.Service;
 
-import com.wolen.randomday.domestic.bo.DomesticBO;
+import com.wolen.randomday.domestic.dao.DomesticDAO;
 import com.wolen.randomday.domestic.like.dao.LikeDAO;
-import com.wolen.randomday.domestic.model.DetailPlace;
+import com.wolen.randomday.domestic.model.Place;
 
 @Service
 public class LikeBO {
@@ -18,14 +17,28 @@ public class LikeBO {
 	@Autowired
 	private LikeDAO likeDAO;
 	
+	@Autowired
+	private DomesticDAO domesticDAO;
+	
 	
 	
 	
 	// 좋아요 기능
 	
-	public int like(int userId, int placeId) {
+	public int like(int userId, int placeId, String doName, String guName, String menuName, String imagePath) {
 		
-		return likeDAO.like(userId, placeId);
+		
+		int count = domesticDAO.selectPlaceId(placeId);
+		
+		if(count == 0) {
+			// 좋아요 누를시 해당 장소 저장
+			domesticDAO.insertPlace(placeId, doName, guName, menuName, imagePath);
+
+		}
+		
+		
+		
+		return likeDAO.like(userId,placeId);
 		
 	}
 	

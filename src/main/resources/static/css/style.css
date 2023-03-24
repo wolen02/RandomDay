@@ -31,13 +31,26 @@ header .mainBanner{
  
  #star a.on{
    color: #ffff80;
- } 
+ }
+ 
+ #refreshBtn{
+ 	font-size:30px;
+ 	font-weight:bold;
+ 	margin: 0 50px 10px 0;
+ }
+ 
+ #refreshBtn:hover{
+ 	scale:1.2;
+ }
 
 section .mainBanner{
 	font-size:100px;
 }
 
-section #earth {animation: rotate_image 6s linear infinite;transform-origin: 50% 50%;}
+section #earth {
+	animation: rotate_image 6s linear infinite;
+	transform-origin: 50% 50%;
+	}
 
 @keyframes rotate_image{
     100% {
@@ -59,6 +72,15 @@ section #earth {animation: rotate_image 6s linear infinite;transform-origin: 50%
 .btn-circle.btn-xl:hover {
 			background-color: #69ba7b;
 		}
+
+.selectedDo{
+	font-size:30px;
+}
+
+.selectedGu{
+	font-size:30px;
+}
+
 
 section .main-box{
 	width:1000px;
@@ -169,8 +191,8 @@ section #searchBtn:hover{
 
 section .card{
 	
-	width:175px;
-	height:155px;
+	width:200px;
+	height:200px;
 	overflow:hidden;
 }
 
@@ -202,6 +224,28 @@ section .mypage_profile{
 	font-weight: 10px;
 	color: white;
 	margin: 30px 0 30px 30px;
+}
+
+section .heartSize{
+	font-size:30px;
+}
+
+section .placeContent{
+	width:500px;
+	height:400px;
+}
+
+section .image{
+	border-radius:5%;
+}
+
+section .height220{
+	height:220px;
+	
+}
+
+section #reviewBtn{
+	margin: 0 20px 20px 0;
 }
 
 .mypage_profile img{
