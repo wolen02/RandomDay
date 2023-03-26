@@ -45,13 +45,13 @@
 			   		 		
 			   		 		<c:choose>
 								<c:when test="${!place.isLike() }">
-									<div class="btn heartBtn heartSize mt-2" data-heart-id="${placeId }"><i class="bi bi-suit-heart"></i></div>
-									<div class="btn heartFillBtn none heartSize mt-2" data-heart-fill-id="${placeId }"><i class="bi bi-suit-heart-fill"></i></div>
+									<div class="btn heartBtn heartSize mt-1" data-heart-id="${placeId }"><i class="bi bi-suit-heart"></i></div>
+									<div class="btn heartFillBtn none heartSize mt-1" data-heart-fill-id="${placeId }"><i class="bi bi-suit-heart-fill"></i></div>
 								</c:when>
 								
 								<c:otherwise>
-									<div class="btn heartBtn none heartSize mt-2" data-heart-id="${placeId }"><i class="bi bi-suit-heart"></i></div>
-									<div class="btn heartFillBtn heartSize mt-2" data-heart-fill-id="${placeId }"><i class="bi bi-suit-heart-fill"></i></div>
+									<div class="btn heartBtn none heartSize mt-1" data-heart-id="${placeId }"><i class="bi bi-suit-heart"></i></div>
+									<div class="btn heartFillBtn heartSize mt-1" data-heart-fill-id="${placeId }"><i class="bi bi-suit-heart-fill"></i></div>
 								</c:otherwise>
 							</c:choose>
    		 				
@@ -98,8 +98,8 @@
 			    
 			      <div class="modal-header">
 			      	<div id="placeId">${placeId }</div>
-			        <h5 class="modal-title" id="exampleModalLabel">리뷰작성</h5>
-			        <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
+			        <h4 class="modal-title mx-2 my-2" id="exampleModalLabel">리뷰작성</h4>
+			        <button type="button" class="close btn modalBtn" data-dismiss="modal" aria-label="Close">
 			          <i class="bi bi-x" style="text-size:10px;"></i>
 			        </button>
 				  
@@ -107,7 +107,7 @@
 			      <div class="modal-body">
 			      
 				     <!-- 별점 매기기 -->
-				     <div class="d-flex">
+				     <div class="d-flex mx-3">
 				     	<P id="star">
 						  <a href="#" value="1"><i class="bi bi-star-fill"></i></a>
 						  <a href="#" value="2"><i class="bi bi-star-fill"></i></a>
@@ -121,13 +121,14 @@
 						 </div>
 				     </div>
 					 
-					
-			       	<textarea id="content" class="form-control"></textarea>
+					<div class="d-flex">
+						<textarea id="content" class="form-control mx-2"></textarea>
+					</div>
 			       	
 			      </div>
 			      
 			      <div class="modal-footer">
-			        <button type="button" id="saveReviewBtn" class="btn btn-primary">리뷰 작성</button>
+			        <button type="button" id="saveReviewBtn" class="btn text-white">리뷰 작성</button>
 			        <button type="button" class="btn btn-secondary close" data-dismiss="modal">닫기</button>
 			      </div>
 			      
@@ -144,8 +145,8 @@
 			      <div class="modal-header">
 			      	<div id="placeId">${placeId }</div>
 			        <h5 class="modal-title" id="exampleModalLabel">${place.getName() }</h5>
-			        <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
-			          <i class="bi bi-x" style="text-size:10px;"></i>
+			        <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+			          <i class="bi bi-x"></i>
 			        </button>
 			      </div>
 			      

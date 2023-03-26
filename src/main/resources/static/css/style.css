@@ -246,6 +246,24 @@ section .height220{
 
 section #reviewBtn{
 	margin: 0 20px 20px 0;
+	background-color: rgb(139, 202, 153);
+}
+
+section #reviewBtn:hover{
+	background-color: #80ba8d;
+}
+
+#saveReviewBtn{
+	background-color: rgb(139, 202, 153);
+	color:white;
+}
+
+#saveReviewBtn:hover{
+	background-color: #80ba8d;
+}
+
+.bi-x{
+	font-size:30px;	
 }
 
 .mypage_profile img{
@@ -299,105 +317,106 @@ section #reviewBtn{
   display: none;
 }
 
+
 .map-wrapper #서울Popup {
   position: absolute;
-  top: 135px;
-  left: 121px;
+  top: 106px;
+  left: 95px;
 }
 
 .map-wrapper #강원Popup {
   position: absolute;
   top: 0px;
-  left: 142px;
+  left: 111px;
 }
 
 .map-wrapper #경기Popup {
   position: absolute;
-  top: 59px;
-  left: 88px;
+  top: 47px;
+  left: 69px;
 }
 
 .map-wrapper #경남Popup {
   position: absolute;
-  top: 391px;
-  left: 214px;
+  top: 306px;
+  left: 168px;
 }
 
 .map-wrapper #경북Popup {
   position: absolute;
-  top: 218px;
-  left: 236px;
+  top: 170px;
+  left: 184px;
 }
 
 .map-wrapper #광주Popup {
   position: absolute;
-  top: 480px;
-  left: 108px;
+  top: 373px;
+  left: 85px;
 }
 
 .map-wrapper #대구Popup {
   position: absolute;
-  top: 371px;
-  left: 303px;
+  top: 291px;
+  left: 238px;
 }
 
 .map-wrapper #대전Popup {
   position: absolute;
-  top: 308px;
-  left: 178px;
+  top: 240px;
+  left: 140px;
 }
 
 .map-wrapper #부산Popup {
   position: absolute;
-  top: 465px;
-  left: 359px;
+  top: 364px;
+  left: 282px;
 }
 
 .map-wrapper #울산Popup {
   position: absolute;
-  top: 419px;
-  left: 375px;
+  top: 328px;
+  left: 294px;
 }
 
 .map-wrapper #인천Popup {
   position: absolute;
-  top: 113px;
-  left: 50px;
+  top: 90px;
+  left: 40px;
 }
 
 .map-wrapper #전남Popup {
   position: absolute;
-  top: 450px;
-  left: 0px;
+  top: 352px;
+  left: 17px;
 }
 
 .map-wrapper #전북Popup {
   position: absolute;
-  top: 356px;
-  left: 70px;
+  top: 278px;
+  left: 57px;
 }
 
 .map-wrapper #제주Popup {
   position: absolute;
-  top: 0px;
-  left: 41px;
+  top: 529px;
+  left: 34px;
 }
 
 .map-wrapper #충남Popup {
   position: absolute;
-  top: 223px;
-  left: 37px;
+  top: 176px;
+  left: 30px;
 }
 
 .map-wrapper #충북Popup {
   position: absolute;
-  top: 201px;
-  left: 171px;
+  top: 156px;
+  left: 133px;
 }
 
 .map-wrapper #전국Popup {
   position: absolute;
-  top: 0px;
+  top: 1px;
   left: 0px;
 }		
 		
