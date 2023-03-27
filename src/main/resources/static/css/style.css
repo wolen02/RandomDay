@@ -19,6 +19,7 @@ header .mainBanner{
 	width:1200px;
 }
 
+
 .height500 {
 	height:500px;
 }
@@ -42,6 +43,16 @@ header .mainBanner{
  #refreshBtn:hover{
  	scale:1.2;
  }
+ 
+ #photoModal{
+	overflow:hidden;
+	position: fixed;
+ 	top: 50%;
+ 	left: 50%;
+ 	transform: translate(-50%, -50%);
+ }
+ 
+ 
 
 section .mainBanner{
 	font-size:100px;
@@ -79,6 +90,36 @@ section #earth {
 
 .selectedGu{
 	font-size:30px;
+}
+
+#locationBanner{
+	font-size:20px;
+}
+
+.content{
+	height: 500px;
+}
+
+.modify-box{
+	width:400px;
+	height:520px;
+	border-radius:15%;
+	background-color: #8bca99;
+}
+
+.foreign-box{
+	height:500px;
+}
+
+
+section .passChangeBtn{
+	background-color:rgb(105, 186, 123);
+	color:white;
+}
+
+section .passChangeBtn:hover{
+	background-color:rgb(69, 150, 87);
+	color:white;
 }
 
 

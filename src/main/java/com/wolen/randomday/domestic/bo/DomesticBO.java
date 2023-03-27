@@ -480,6 +480,7 @@ public class DomesticBO {
                     JSONArray array = json.getJSONArray("items");
                     if(array.length() == 0) {
                     	 DetailPlace detailPlace = new DetailPlace(null, null, null, null, null, 3, menuName, null);
+                    	 placeList.add(detailPlace);
                     }else {
                     	 // placeId 로부터 배열 index 얻기
                     	int menuIndex = Integer.parseInt(stringPlaceId.substring(placeIdLength - 1));

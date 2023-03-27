@@ -18,29 +18,49 @@
 		<c:import url="/WEB-INF/jsp/randomday/include/header.jsp"></c:import>
 	
 	
-		<section>
+		<section class="d-flex justify-content-center align-items-center">
 			
-			
-			<div class="">
+			<div class="modify-box box shadow">
 				
-				<img class="mx-2 mb-1" width="25px" src="/static/images/사용자 아이콘.png">
-				<input type="file" id="inputFile">
+				<div class="mx-4 my-4">
+					
+					<h3 class="text-white">프로필 변경</h3>
+					
+					<c:choose>
+						<c:when test="${imagePath == null }">
+							<img class="mx-2 my-2" width="50px" height="50px" src="/static/images/사용자 아이콘.png">
+						</c:when>
+							
+						<c:otherwise>
+							<img class="mx-2 my-2 rounded-circle" width="50px" height="50px" src="${imagePath }">
+						</c:otherwise>
+					</c:choose>
+					
+					<input class="form-control" type="file" id="inputFile">
+					<div class="d-flex justify-content-end my-3">
+						<button id="imageChangeBtn" class="btn btn-secondary">프로필 변경</button>
+					</div>
 				
-				<button id="imageChangeBtn" class="btn btn-secondary">프로필 변경</button>
-			
+				</div>
+				
+				
+				<div class="mx-4 my-4">
+				
+					<h3 class="text-white mb-3">비밀번호 변경</h3>
+				
+					<label class="text-white">현재 비밀번호 입력</label>
+					<input id="confirmPass" class="form-control mb-2" type="password">
+					
+					<label class="text-white">새 비밀번호 입력</label>
+					<input id="newPass" class="form-control" type="password">
+					
+					<div class="d-flex justify-content-end my-3">
+						<button id="modifyBtn" class="btn passChangeBtn">비밀번호 변경</button>
+					</div>
+					
+				</div>
+				
 			</div>
-			
-			
-			<div>
-				<label>현재 비밀번호 입력</label>
-				<input id="confirmPass" class="form-control" type="password">
-				
-				<label>새 비밀번호 입력</label>
-				<input id="newPass" class="form-control" type="password">
-				
-				<button id="modifyBtn" class="btn btn-primary">비밀번호 변경</button>
-			</div>
-
 			
 		</section>
 	

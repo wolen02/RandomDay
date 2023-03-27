@@ -96,7 +96,14 @@ public class UserController {
 	
 	// 회원정보 수정 페이지 불러오기
 	@RequestMapping("/user/modify/view")
-	public String modifyInfo() {
+	public String modifyInfo(HttpServletRequest request
+							, Model model) {
+		
+		HttpSession session = request.getSession();
+		
+		String imagePath = (String)session.getAttribute("imagePath");
+		
+		model.addAttribute("imagePath", imagePath);
 		
 		
 		return "/randomday/user/modify";

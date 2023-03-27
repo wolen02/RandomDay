@@ -21,7 +21,7 @@
 
 		<div class="map-wrapper mt-4">
 		
-			<img class="minimizeScale" src="/static/images/한국 전체 축소.png" usemap="#image-map">
+			<img src="/static/images/한국 전체 축소.png" usemap="#image-map">
 
 			<map name="image-map">
 			    <area class="area" alt="서울" coords="143,135,155,135,155,143,155,151,164,150,160,158,151,170,140,168,128,164,118,153" shape="poly">
@@ -168,6 +168,11 @@
 		
 		// 검색 버튼 누를 때 결과페이지로 넘어가기
 		$("#searchBtn").on("click", function(){
+			
+			if(doName == "전국"){
+				alert("전국 서비스는 준비중입니다.");
+				return;
+			}
 			
 			location.href="/randomday/domestic/result/view?doName=" + doName + "&&guName=" +guName;
 			

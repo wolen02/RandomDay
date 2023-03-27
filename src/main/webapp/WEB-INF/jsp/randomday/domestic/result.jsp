@@ -22,7 +22,7 @@
 			
 			<div class="d-flex align-items-end">
 				<div id="doName" class="selectedDo mx-2">${doName }</div>
-				<div id="guName" class="selectedGu mx-2">${guName } 검색 결과</div>
+				<div id="guName" class="selectedGu mx-2">${guName }</div><span>검색 결과</span>
 			</div>
 			
 		</div>

@@ -22,10 +22,10 @@
 					<c:when test="${userName != null }">
 						<c:choose>
 							<c:when test="${imagePath != null }">
-								<a href="/randomday/user/userpage/view"><img class="mx-2 mb-1 rounded-circle" width="25px" src="${imagePath }"></a>
+								<a href="/randomday/user/userpage/view"><img class="mx-2 mb-1 rounded-circle" width="30px" height="30px" src="${imagePath }"></a>
 							</c:when>
 							<c:otherwise>
-								<a href="/randomday/user/userpage/view"><img class="mx-2 mb-1 rounded-circle" width="25px" src="/static/images/사용자 아이콘.png"></a>
+								<a href="/randomday/user/userpage/view"><img class="mx-2 mb-1 rounded-circle" width="30px" height="30px" src="/static/images/사용자 아이콘.png"></a>
 							</c:otherwise>
 						</c:choose>
 							${userName }님, 반갑습니다. 
@@ -79,7 +79,7 @@
 		
 		
 		$("#foreignBtn").on("click", function(){
-			location.href="/randomday/user/signin/view";
+			location.href="/randomday/foreign/select/view";
 		});
 		
 		

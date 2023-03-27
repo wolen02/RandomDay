@@ -38,7 +38,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 			
 			}else {
 				// 로그인이 되어 있지 않은 경우
-				if(uri.startsWith("/randomday/user/") || uri.startsWith("/randomday/domestic")) {
+				if(uri.startsWith("/randomday/user/") || uri.startsWith("/randomday/domestic") || uri.startsWith("/randomday/foreign/")) {
 					// 로그인 페이지 이동
 					response.sendRedirect("/randomday/signin/view");
 					return false;
