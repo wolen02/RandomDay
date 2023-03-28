@@ -24,20 +24,21 @@
    		 	
    		 		<div class="d-flex align-items-center mt-5">
    		 			<div id="roadAddress" class="none">${place.getRoadAddress() }</div>
+	   		 			
+		   		 			<c:choose>
+		   		 			<c:when test="${place.getImageURL() != null }">
+		   		 				<div>
+		   		 					<img id="image" class="image" width="500px;" height="400px;" src="${place.getImageURL() }">
+		   		 				</div>
+		   		 			</c:when>
+		   		 			
+		   		 			<c:otherwise>
+		   		 				<div>
+				   		 			<img class="image" width="500px;" height="400px;" src="/static/images/이미지 존재하지 않음.png">
+				   		 		</div>
+		   		 			</c:otherwise>
+		   		 			</c:choose>
    		 			
-   		 			<c:choose>
-   		 			<c:when test="${place.getImageURL() != null }">
-   		 				<div>
-   		 					<img id="image" class="image" width="500px;" height="400px;" src="${place.getImageURL() }">
-   		 				</div>
-   		 			</c:when>
-   		 			
-   		 			<c:otherwise>
-   		 				<div>
-		   		 			<img class="image" width="500px;" height="400px;" src="/static/images/이미지 존재하지 않음.png">
-		   		 		</div>
-   		 			</c:otherwise>
-   		 			</c:choose>
    		 			
    		 		</div>
    		 		

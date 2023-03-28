@@ -124,7 +124,7 @@
 					<ul class="nav nav-fill text-white">
 					
 						<c:forEach var="dodo" items="${doList }">
-							<li id="${dodo.name }" class="btn selectBtn"><b>${dodo.name }</b></li>								
+							<li id="${dodo.name }" class="btn selectBtn shadow"><b>${dodo.name }</b></li>								
 						</c:forEach>
 						
 					</ul>
@@ -142,7 +142,7 @@
 				</div>
 				
 				<div class="d-flex justify-content-end align-items-end mt-5">
-					<button id="searchBtn" class="btn text-white">검색</button>
+					<button id="searchBtn" class="btn text-white shadow">검색</button>
 				</div>
 
 			</div>

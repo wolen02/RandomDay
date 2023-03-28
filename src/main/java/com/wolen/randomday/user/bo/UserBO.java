@@ -97,25 +97,9 @@ public class UserBO {
 		// 유저를 통해 이미지 있는 지 확인
 		
 		String image = user.getImagePath();
-		
-		if(image != null) {
-			
-			// 기존 이미지 삭제
-			int count = userDAO.deleteImage(userId);
-			
-			// 이미지 등록
-			if(count == 1) {
-				return userDAO.updateImage(userId, imagePath);
-			}else {
-				return 0;
-			}
-			
-		}else {
-			return userDAO.updateImage(userId, imagePath);
-		}
-		
 
-		
+		return userDAO.updateImage(userId, imagePath);
+
 	}
 	
 }

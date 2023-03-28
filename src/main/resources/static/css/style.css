@@ -1,6 +1,14 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'LOTTERIACHAB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/LOTTERIACHAB.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 gradlew clean build --refresh-dependencies
+
 
 header{
 	height:50px;
@@ -12,6 +20,23 @@ header .userInfo{
 
 header .mainBanner{
 	font-size:50px;
+	font-family: "LOTTERIACHAB";
+}
+
+section .mainBanner{
+	font-size:50px;
+	font-family: "LOTTERIACHAB";
+}
+
+section .start{
+	--animate-duration: 2s;
+	margin: 0 20px 0 0;
+}
+
+
+body{
+	background-image: url("/static/images/선 1.png");
+	background-size: 100% 1000px;
 }
 
 #wrap{
@@ -53,6 +78,9 @@ header .mainBanner{
  }
  
  
+ section .post{
+ 	position:relative;
+ }
 
 section .mainBanner{
 	font-size:100px;

@@ -40,9 +40,6 @@ public interface UserDAO {
 	// userId를 통해 imagePath등록
 	public int updateImage(@Param("userId") int userId,@Param("imagePath") String imagePath);
 	
-	// userId를 통해 imagePath삭제
-	public int deleteImage(@Param("userId") int userId);
-	
 	// userId를 통해 유저 가져오기
 	public User selectUserByuserId(@Param("userId") int userId);
 	
