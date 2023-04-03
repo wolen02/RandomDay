@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<div id="wrap">
+	<div id="wrap" class="height800">
 		
 		<c:import url="/WEB-INF/jsp/randomday/include/header.jsp"></c:import>
 		
@@ -21,21 +21,23 @@
 			
 			<div>
 				
-				<h3>내가 좋아요 한 장소들</h3>
+				<h3 class="LOTTERIACHAB text-white">내가 좋아요 한 장소들</h3>
+				<br>
 				
 				<div>
 				
-					<table class="table text-center">
+					<table class="table text-center like-table shadow PuradakGentleGothicR">
 						
 						<thead>
 							<th>이름</th>
 							<th>분류</th>
-							<th>&nbsp&nbsp&nbsp</th>
+							<th>&nbsp;&nbsp;&nbsp;</th>
 							<th>주소</th>
 							<th>삭제</th>
 						</thead>
 						
 						<tbody>
+						
 							<c:forEach var="place" items="${places }" varStatus="status">
 							
 								<tr>
@@ -44,7 +46,7 @@
 									<td>${place.category }</td>
 									<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
 									<td>${place.roadAddress }</td>
-									<td>&nbsp&nbsp<button class="btn btn-success deleteBtn" data-btn-id="${placesId[status.index] }">삭제</button></td>
+									<td>&nbsp&nbsp<button class="btn btn-success deleteBtn shadow" data-btn-id="${placesId[status.index] }">삭제</button></td>
 								</tr>	
 								
 								

@@ -17,7 +17,7 @@
 	
 	
 		<header class="d-flex justify-content-end">
-			<div class="main-box userInfo">
+			<div class="main-box userInfo PuradakGentleGothicR">
 				<div>
 				<c:choose>
 					<c:when test="${userName != null }">
@@ -79,11 +79,7 @@
 		element.addEventListener('animationend', () => {
 		  // 애니메이션 실행이 끝나면 함수 실행
 		});
-		
-
-		
-
-		
+				
 		
 		$("#domesticBtn").on("click", function(){
 			location.href="/randomday/domestic/select";

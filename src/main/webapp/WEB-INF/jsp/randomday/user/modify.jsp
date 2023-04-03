@@ -24,7 +24,7 @@
 				
 				<div class="mx-4 my-4">
 					
-					<h3 class="text-white">프로필 변경</h3>
+					<h3 class="text-white LOTTERIACHAB">프로필 변경</h3>
 					
 					<c:choose>
 						<c:when test="${imagePath == null }">
@@ -36,8 +36,8 @@
 						</c:otherwise>
 					</c:choose>
 					
-					<input class="form-control" type="file" id="inputFile">
-					<div class="d-flex justify-content-end my-3">
+					<input class="form-control LOTTERIACHAB" type="file" id="inputFile">
+					<div class="d-flex justify-content-end my-3 LOTTERIACHAB text-white">
 						<button id="imageChangeBtn" class="btn btn-secondary">프로필 변경</button>
 					</div>
 				
@@ -46,15 +46,15 @@
 				
 				<div class="mx-4 my-4">
 				
-					<h3 class="text-white mb-3">비밀번호 변경</h3>
+					<h3 class="text-white mb-3 LOTTERIACHAB">비밀번호 변경</h3>
 				
-					<label class="text-white">현재 비밀번호 입력</label>
+					<label class="text-white LOTTERIACHAB">현재 비밀번호 입력</label>
 					<input id="confirmPass" class="form-control mb-2" type="password">
 					
-					<label class="text-white">새 비밀번호 입력</label>
+					<label class="text-white LOTTERIACHAB">새 비밀번호 입력</label>
 					<input id="newPass" class="form-control" type="password">
 					
-					<div class="d-flex justify-content-end my-3">
+					<div class="d-flex justify-content-end my-3 LOTTERIACHAB">
 						<button id="modifyBtn" class="btn passChangeBtn">비밀번호 변경</button>
 					</div>
 					

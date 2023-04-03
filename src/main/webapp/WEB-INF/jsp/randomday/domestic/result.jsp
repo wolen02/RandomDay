@@ -18,7 +18,7 @@
 		<c:import url="/WEB-INF/jsp/randomday/include/header.jsp"></c:import>
 		
 		
-		<div class="d-flex justify-content-center align-items-end">
+		<div class="d-flex justify-content-center align-items-end resultBanner">
 			
 			<div class="d-flex align-items-end">
 				<div id="doName" class="selectedDo mx-2">${doName }</div>
@@ -43,10 +43,10 @@
 			
 			<c:forEach var="result" items="${pinPlaces }">
 				
-					<div class="card my-3 mx-3">
+					<div class="card my-3 mx-3 font20 shadow">
 
 						<div class="d-flex justify-content-around">
-							<div>${result.title }</div>
+							<div class="PuradakGentleGothicR marginLeftTop mx-1 my-1">${result.title }</div>
 							<div class="none" data-placeMenu-id="${result.placeId }">${result.menuName }</div>
 							<div class="none" data-placeImg-id="${result.placeId }">${result.imagePath }</div>							
 
@@ -73,10 +73,7 @@
 						
 						
 						<a class="text-decoration-none text-dark" href="/randomday/domestic/detail/view?doName=${doName }&guName=${guName }&placeId=${result.placeId }&menuName= ${result.menuName }">
-							<img class="card-img-top" src="${result.imagePath }" alt="${result.title }">
-						  	<div class="card-body">						  	
-						  	</div>
-						
+							<img class="card-img-top" width="200px" height="180px" src="${result.imagePath }" alt="${result.title }">
 						</a>
 					 
 					 </div>
@@ -89,10 +86,10 @@
 				
 				<c:forEach var="result" items="${results }" varStatus="status">
 								
-								<div class="card my-3 mx-3">
+								<div class="card my-3 mx-3 font20 shadow">
 
 									<div class="d-flex justify-content-around">
-										<div>${result.title }</div>
+										<div class="PuradakGentleGothicR marginLeftTop">${result.title }</div>
 										<div class="none" data-placeMenu-id="${result.placeId }">${result.category }</div>
 										<div class="none" data-placeImg-id="${result.placeId }">${result.imageURL }</div>
 													
@@ -121,12 +118,10 @@
 									
 									
 									<a class="text-decoration-none text-dark" href="/randomday/domestic/detail/view?doName=${doName }&guName=${guName }&placeId=${result.placeId }&menuName= ${result.category }">
-										<img class="card-img-top" src="${result.imageURL }" alt="${result.title }">
-									  	<div class="card-body">
-									    	<p class="card-text none" data-title-id="${result.placeId }">${result.title}<br></p>
-									  	
-									  	</div>
-									
+										<img class="card-img-top" width="200px" height="180px" src="${result.imageURL }" alt="${result.title }">
+									    	<p class="card-text none" data-title-id="${result.placeId }">
+									    		${result.title}<br>
+									    	</p>									
 									</a>
 								 
 								 </div>

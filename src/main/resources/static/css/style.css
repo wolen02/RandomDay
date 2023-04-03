@@ -7,6 +7,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PuradakGentleGothicR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.1/PuradakGentleGothicR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 gradlew clean build --refresh-dependencies
 
 
@@ -21,6 +35,7 @@ header .userInfo{
 header .mainBanner{
 	font-size:50px;
 	font-family: "LOTTERIACHAB";
+	text-shadow: 4px 2px 2px gray;
 }
 
 section .mainBanner{
@@ -33,10 +48,34 @@ section .start{
 	margin: 0 20px 0 0;
 }
 
+.LOTTERIACHAB{
+	font-family: "LOTTERIACHAB";
+}
+
+.EF_jejudoldam{
+	font-family: 'EF_jejudoldam';
+}
+
+.PuradakGentleGothicR{
+	font-family: 'PuradakGentleGothicR';
+}
+
+.font20{
+	font-size:15px;
+}
+
+.marginLeftTop{
+	margin: 2px 0 0 4px;
+}
+
 
 body{
-	background-image: url("/static/images/선 1.png");
-	background-size: 100% 1000px;
+	background-image: url("/static/images/선 2.png");
+	background-size: 100% 100%;
+}
+
+.resultBanner{
+	font-family: "LOTTERIACHAB";
 }
 
 #wrap{
@@ -77,9 +116,25 @@ body{
  	transform: translate(-50%, -50%);
  }
  
+ .height800{
+ 	height:800px;
+ }
+ 
+.like-table{
+	border-radius: 6%;
+	background-color: rgb(139, 202, 153);
+}
  
  section .post{
  	position:relative;
+ }
+ 
+ section .result-box{
+ 	width:900px;
+ }
+ 
+ section .doBtn{
+ 	width:500px;
  }
 
 section .mainBanner{
@@ -153,6 +208,7 @@ section .passChangeBtn:hover{
 
 section .main-box{
 	width:1000px;
+	text-shadow: 4px 2px 2px gray;
 }
 
 section .login_box{
@@ -259,7 +315,8 @@ section #searchBtn:hover{
 }
 
 section .card{
-	
+	border-radius:10%;
+	background-color:#eff8f2;
 	width:200px;
 	height:200px;
 	overflow:hidden;
@@ -389,8 +446,8 @@ section #reviewBtn:hover{
 
 .map-wrapper #서울Popup {
   position: absolute;
-  top: 106px;
-  left: 95px;
+  top: 105px;
+  left: 97px;
 }
 
 .map-wrapper #강원Popup {
@@ -419,7 +476,7 @@ section #reviewBtn:hover{
 
 .map-wrapper #광주Popup {
   position: absolute;
-  top: 373px;
+  top: 372px;
   left: 85px;
 }
 
@@ -431,7 +488,7 @@ section #reviewBtn:hover{
 
 .map-wrapper #대전Popup {
   position: absolute;
-  top: 240px;
+  top: 241px;
   left: 140px;
 }
 
@@ -449,19 +506,19 @@ section #reviewBtn:hover{
 
 .map-wrapper #인천Popup {
   position: absolute;
-  top: 90px;
-  left: 40px;
+  top: 89px;
+  left: 39px;
 }
 
 .map-wrapper #전남Popup {
   position: absolute;
-  top: 352px;
-  left: 17px;
+  top: 334px;
+  left: 0px;
 }
 
 .map-wrapper #전북Popup {
   position: absolute;
-  top: 278px;
+  top: 279px;
   left: 57px;
 }
 
@@ -473,14 +530,14 @@ section #reviewBtn:hover{
 
 .map-wrapper #충남Popup {
   position: absolute;
-  top: 176px;
-  left: 30px;
+  top: 174px;
+  left: 31px;
 }
 
 .map-wrapper #충북Popup {
   position: absolute;
-  top: 156px;
-  left: 133px;
+  top: 157px;
+  left: 135px;
 }
 
 .map-wrapper #전국Popup {

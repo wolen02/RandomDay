@@ -40,6 +40,7 @@ public class DomesticController {
 	@Autowired
 	private PinBO pinBO;
 	
+	
 	// 지역 선택 페이지
 	
 	@GetMapping("/select")

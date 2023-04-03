@@ -30,11 +30,11 @@
 				<!--  프로필이 존재하면 해당 사진으로 존재 하지 않으면 기본 이미지로 -->				
 					<c:choose>
 						<c:when test="${imagePath != null }">
-							<img class="mx-2 mb-1 card" src="${imagePath }"><div class="userName">${userName } 님</div>
+							<img class="mx-2 mb-1 card" src="${imagePath }"><div class="userName EF_jejudoldam">${userName } 님</div>
 						</c:when>
 						
 						<c:otherwise>
-							<img class="mx-2 mb-1 card" src="/static/images/사용자 아이콘.png"><div class="userName">${userName } 님</div>
+							<img class="mx-2 mb-1 card" src="/static/images/사용자 아이콘.png"><div class="userName EF_jejudoldam">${userName } 님</div>
 						</c:otherwise>
 					</c:choose>
 
@@ -45,13 +45,13 @@
 				
 				<a class="text-decoration-none" href="/randomday/user/likespaces/view">
 					<div class="btn mx-4">
-						<div class="mx-2 mypageBtn"><i class="bi bi-heart-fill mx-2"></i>좋아하는 장소 목록</div>
+						<div class="mx-2 mypageBtn PuradakGentleGothicR"><i class="bi bi-heart-fill mx-2"></i>좋아하는 장소 목록</div>
 					</div>
 				</a>
 				
 				<a class="text-decoration-none" href="/randomday/user/modify/view">
 					<div class=" btn mx-4">
-						<div class="mx-2 mypageBtn"><i class="bi bi-gear-fill mx-2"></i>회원 정보 수정</div>
+						<div class="mx-2 mypageBtn PuradakGentleGothicR"><i class="bi bi-gear-fill mx-2"></i>회원 정보 수정</div>
 					</div>
 				</a>
 				

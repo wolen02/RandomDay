@@ -21,7 +21,7 @@
 
 		<div class="map-wrapper mt-4">
 		
-			<img src="/static/images/한국 전체 축소.png" usemap="#image-map">
+			<img src="/static/images/한국 전체 축소 색변경.png" usemap="#image-map">
 
 			<map name="image-map">
 			    <area class="area" alt="서울" coords="143,135,155,135,155,143,155,151,164,150,160,158,151,170,140,168,128,164,118,153" shape="poly">
@@ -107,48 +107,48 @@
 			</div>
 
 			<div class="popup" id="전국Popup">
-				<img src="/static/images/한국 전체2.png">
+				<img src="/static/images/한국전체.png">
 			</div>
 			
 		</div>
 
 			
 
-			<div class="mx-4">
-				
-				<div class="mx-1 my-3">
-					<h1 class="text-success"><b>지역선택</b></h1>
-				</div>
+			<div class="mx-4 result-box d-flex justify-content-end">
 				
 				<div>
-					<ul class="nav nav-fill text-white">
+					<div class="mx-1 my-3">
+						<h1 class="text-success LOTTERIACHAB">지역선택</h1>
+					</div>
 					
-						<c:forEach var="dodo" items="${doList }">
-							<li id="${dodo.name }" class="btn selectBtn shadow"><b>${dodo.name }</b></li>								
-						</c:forEach>
+					<div>
+						<ul class="nav nav-fill text-white">
+							<div class="doBtn EF_jejudoldam">
+								<c:forEach var="dodo" items="${doList }">
+									<li id="${dodo.name }" class="btn selectBtn shadow">${dodo.name }</li>								
+								</c:forEach>
+							</div>
+						</ul>
+					</div>
+					
+					
+					<div id="detailArea" class="mt-3">
+						<h3 class="text-success my-2 LOTTERIACHAB">세부지역 선택</h3>
 						
-					</ul>
-				</div>
-				
-				
-				<div id="detailArea" class="mt-3">
-					<h3 class="text-success my-2"><b>세부지역 선택</b></h3>
+						<div class="d-flex justify-content-around">
+							<h1 id="doName" class="my-3 LOTTERIACHAB"></h1>
+							<select id="guSelect" class="form-select mt-3 EF_jejudoldam"></select>
+						</div>
+	
+					</div>
 					
-					<div class="d-flex justify-content-around">
-						<h1 id="doName" class="my-3"><b></b></h1>
-						<select id="guSelect" class="form-select mt-3"></select>
+					<div class="d-flex justify-content-end align-items-end mt-5 EF_jejudoldam">
+						<button id="searchBtn" class="btn text-white shadow">검색</button>
 					</div>
 
 				</div>
-				
-				<div class="d-flex justify-content-end align-items-end mt-5">
-					<button id="searchBtn" class="btn text-white shadow">검색</button>
-				</div>
-
 			</div>
-			
 				
-						
 		</section>
 
 

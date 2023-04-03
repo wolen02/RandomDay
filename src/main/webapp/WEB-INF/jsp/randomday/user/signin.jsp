@@ -15,11 +15,11 @@
 	<div id="wrap">
 		
 		<header class="mt-5">
-			<a class="text-decoration-none text-dark" href="/randomday/start/view">
+			<a class="text-decoration-none text-white" href="/randomday/start/view">
 				<div class="d-flex justify-content-center my-3 main-box">
-					<div class="text-center mainBanner"><b>R</b><b>A</b><b>N</b><b>D</b></div>
+					<div class="text-center mainBanner">RAND</div>
 					<img width="60px" height="60px" src="/static/images/지구.png" id="earth" class="mt-2" alt="지구">
-					<div class="text-center mainBanner"><b>M</b>&nbsp;<b>D</b><b>A</b><b>Y</b></div>
+					<div class="text-center mainBanner">M&nbsp;DAY</div>
 				</div>
 			</a>
 		</header>

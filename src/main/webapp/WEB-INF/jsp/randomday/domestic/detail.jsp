@@ -47,7 +47,7 @@
    		 		<div class="mx-5 placeContent">
    		 			
    		 			<div class="d-flex">
-   		 				<h1 class="mx-2 mt-2">${place.getName() }</h1>
+   		 				<h1 class="mx-2 mt-2 PuradakGentleGothicR">${place.getName() }</h1>
 			   		 		
 			   		 		<c:choose>
 								<c:when test="${!place.isLike() }">
@@ -63,18 +63,18 @@
    		 				
    		 			</div>
    		 			
-   		 			<div class="mx-2">카테고리: <span id="menu">${place.getCategory() }</span></div>
+   		 			<div class="mx-3">카테고리: <span id="menu">${place.getCategory() }</span></div>
    		 			
    		 			<div class="d-flex mx-2 mt-2">
-   		 				<a id="showReview" class="mx-2" href="#">리뷰(${reviewCount })</a>
-   		 				<a class="mx-2" href="#">좋아요(${likeCount })</a>
+   		 				<a id="showReview" class="mx-2 text-decoration-none text-primary" href="#"><i class="bi bi-list-stars"></i>&nbsp;리뷰(${reviewCount })</a>
+   		 				<a class="mx-2 text-decoration-none text-danger" href="#"><i class="bi bi-suit-heart-fill"></i>&nbsp;좋아요(${likeCount })</a>
    		 			</div>
    		 			
    		 			<div class="my-3 mx-2">
 						
-						<div class="d-flex justify-content-between">
-							<h3>위치</h3>
-		   		 				<button type="button" id="reviewBtn" class="btn btn-secondary border-white" data-toggle="modal" data-target="#exampleModal">
+						<div class="d-flex justify-content-between PuradakGentleGothicR">
+							<h3 class="mx-2">위치</h3>
+		   		 				<button type="button" id="reviewBtn" class="btn text-white shadow" data-toggle="modal" data-target="#exampleModal">
 								  리뷰작성하기
 								</button>
 						</div>
@@ -94,13 +94,13 @@
    		 	<c:import url="/WEB-INF/jsp/randomday/include/footer.jsp"></c:import>
 		
 		<!--  리뷰 작성 모달 -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal fade PuradakGentleGothicR" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			    
 			      <div class="modal-header">
 			      	<div id="placeId">${placeId }</div>
-			        <h4 class="modal-title mx-2 my-2" id="exampleModalLabel">리뷰작성</h4>
+			        <h4 class="modal-title mx-3 my-2" id="exampleModalLabel">리뷰작성</h4>
 			        <button type="button" class="close btn modalBtn" data-dismiss="modal" aria-label="Close">
 			          <i class="bi bi-x" style="text-size:10px;"></i>
 			        </button>
@@ -130,8 +130,8 @@
 			      </div>
 			      
 			      <div class="modal-footer">
-			        <button type="button" id="saveReviewBtn" class="btn text-white">리뷰 작성</button>
-			        <button type="button" class="btn btn-secondary close" data-dismiss="modal">닫기</button>
+			        <button type="button" id="saveReviewBtn" class="btn text-white shadow">리뷰 작성</button>
+			        <button type="button" class="btn btn-secondary close shadow" data-dismiss="modal">닫기</button>
 			      </div>
 			      
 			    </div>
@@ -146,7 +146,7 @@
 			    
 			      <div class="modal-header">
 			      	<div id="placeId">${placeId }</div>
-			        <h5 class="modal-title" id="exampleModalLabel">${place.getName() }</h5>
+			        <h5 class="modal-title PuradakGentleGothicR mx-1" id="exampleModalLabel">${place.getName() }</h5>
 			        <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
 			          <i class="bi bi-x"></i>
 			        </button>
@@ -154,7 +154,7 @@
 			      
 			      <div class="modal-body">
 			      
-			      	<table class="table">
+			      	<table class="table PuradakGentleGothicR text-center align-middle">
 			      		<thead>
 			      			<tr>
 				      			<th>작성자</th>
@@ -167,9 +167,9 @@
 					       	<c:forEach var="review" items="${reviews }">
 					       		
 					       		<tr>
-					      			<td>${review.getUserName() }</td>
-					      			<td>${review.getContent() }</td>
-					      			<td>${review.getPoint() }</td>
+					      			<td class="col-2">${review.getUserName() }</td>
+					      			<td class="col-8">${review.getContent() }</td>
+					      			<td class="col-2">${review.getPoint() }</td>
 					      		</tr>
 					       	
 					       	</c:forEach>
