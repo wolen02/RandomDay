@@ -67,7 +67,7 @@ public class UserController {
 	// 좋아요 장소 목록 불러오기
 	
 	@RequestMapping("/user/likespaces/view")
-	public String likeSpaces(HttpServletRequest request, Model model) throws IOException, JSONException, org.springframework.boot.configurationprocessor.json.JSONException {
+	public String likeSpaces(HttpServletRequest request, Model model) throws JSONException, IOException {
 		
 		// 해당 유저가 좋아요 표시한 장소를 가져오기 위해 session에서 id얻어오기
 		
