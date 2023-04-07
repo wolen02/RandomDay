@@ -2,10 +2,8 @@ package com.wolen.randomday.user.bo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.wolen.randomday.common.EncryptUtils;
-import com.wolen.randomday.common.FileManagerService;
 import com.wolen.randomday.user.dao.UserDAO;
 import com.wolen.randomday.user.model.User;
 

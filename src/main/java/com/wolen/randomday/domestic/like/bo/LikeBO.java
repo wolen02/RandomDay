@@ -3,13 +3,12 @@ package com.wolen.randomday.domestic.like.bo;
 import java.io.IOException;
 import java.util.List;
 
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.stereotype.Service;
 
 import com.wolen.randomday.domestic.dao.DomesticDAO;
 import com.wolen.randomday.domestic.like.dao.LikeDAO;
-import com.wolen.randomday.domestic.model.Place;
 
 @Service
 public class LikeBO {

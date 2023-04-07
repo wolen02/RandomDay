@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wolen.randomday.domestic.like.bo.LikeBO;
-import com.wolen.randomday.domestic.model.Place;
 
 @RestController
 @RequestMapping("/place")

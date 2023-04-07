@@ -6,8 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,7 +67,7 @@ public class UserController {
 	// 좋아요 장소 목록 불러오기
 	
 	@RequestMapping("/user/likespaces/view")
-	public String likeSpaces(HttpServletRequest request, Model model) throws IOException, JSONException {
+	public String likeSpaces(HttpServletRequest request, Model model) throws IOException, JSONException, org.springframework.boot.configurationprocessor.json.JSONException {
 		
 		// 해당 유저가 좋아요 표시한 장소를 가져오기 위해 session에서 id얻어오기
 		
