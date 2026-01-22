@@ -1,5 +1,7 @@
 Spring Fraemwork를 이용하여 만든 첫 JAVA 프로젝트 RandomDay
 
+src/main/java/com/wolen/randomday: 작성된 코드 확인 가능
+
 HTML + CSS + javascript를 활용하여 프론트를 구현
 
 MVC 구조를 통해 체계적으로 객체의 역할을 나눔
