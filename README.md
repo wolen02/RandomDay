@@ -1,6 +1,6 @@
 ## Spring Fraemwork를 이용하여 만든 첫 JAVA 프로젝트 RandomDay
 
-<video src="https://app.notion.com/p/RandomDay-c530fb6275064145a16242637e1a1c5c?source=copy_link>
+<video src="https://app.notion.com/p/RandomDay-c530fb6275064145a16242637e1a1c5c?source=copy_link></vdieo>
 
 ### 링크: https://app.notion.com/p/RandomDay-c530fb6275064145a16242637e1a1c5c?source=copy_link
 
