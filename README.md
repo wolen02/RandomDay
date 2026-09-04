@@ -1,5 +1,8 @@
 ## Spring Fraemwork를 이용하여 만든 첫 JAVA 프로젝트 RandomDay
 
+###링크: https://app.notion.com/p/RandomDay-c530fb6275064145a16242637e1a1c5c?source=copy_link
+
+
 ### src/main/java/com/wolen/randomday: 작성된 코드 확인 가능
 
 #### HTML + CSS + javascript를 활용하여 프론트를 구현
