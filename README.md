@@ -1,7 +1,8 @@
 ## Spring Fraemwork를 이용하여 만든 첫 JAVA 프로젝트 RandomDay
 
 ## 🎥 Demo Video
-[![RandomDay Demo](images/demo-thumbnail.png)](https://www.youtube.com/watch?v=jgmgm1Dxf4w)
+[![Demo Video](https://img.youtube.com/vi/jgmgm1Dxf4w/maxresdefault.jpg)](https://www.youtube.com/watch?v=jgmgm1Dxf4w)
+**[▶ RandomDay 시연 영상 재생](https://www.youtube.com/watch?v=jgmgm1Dxf4w)** (클릭 시 원본 영상으로 이동)
 
 ### 소개 페이지: https://app.notion.com/p/RandomDay-c530fb6275064145a16242637e1a1c5c?source=copy_link
 
